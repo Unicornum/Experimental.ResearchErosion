@@ -19,10 +19,10 @@ public:
   }
 
   Erosion & DommainDistortion(void);
-  //Erosion & AxelParisThermalErosion(void);
-  //Erosion & Gavoronoise(void);
-  //Erosion & TinyErodeRainfall(void);
-  //Erosion & WaterErosionByEDog(void);
+  Erosion & AxelParisThermalErosion(void);
+  Erosion & TinyErodeRainfall(void);
+  Erosion & Gavoronoise(void);
+  Erosion & WaterErosionByEDog(void);
 
 private:
   const float m_MinWaterLevel = 0.01f;

@@ -78,9 +78,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AxelParisThermalErosion.cpp" />
     <ClCompile Include="DommainDistortion.cpp" />
+    <ClCompile Include="Gavoronoise.cpp" />
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="TinyErodeRainfall.cpp" />
+    <ClCompile Include="WaterErosionByEDog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Version.rc">

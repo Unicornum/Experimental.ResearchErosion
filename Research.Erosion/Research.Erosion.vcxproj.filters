@@ -8,6 +8,18 @@
     <ClCompile Include="DommainDistortion.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="AxelParisThermalErosion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyErodeRainfall.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gavoronoise.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterErosionByEDog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
