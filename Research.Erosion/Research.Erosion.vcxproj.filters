@@ -5,6 +5,9 @@
     <ClCompile Include="Support.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="DommainDistortion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -23,8 +26,10 @@
     <ClInclude Include="Support.hpp">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Erosion.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Source.tiff" />
+    <Image Include="Result.tiff" />
   </ItemGroup>
 </Project>

@@ -20,7 +20,24 @@ void TestErosion(void)
   Support(At)
     .SetSize(SizeX, SizeY)
     .Load("Source.tiff")
-    .Normalize(0.3f)
+    .Normalize();
+
+  Erosion(At)
+    .SetSize(SizeX, SizeY)
+    .DommainDistortion() // требуется нормализация в диапазон 0...1
+    //.SetSize(512, 512)
+    //.TinyErodeRainfall()
+    //.TinyErodeRainfall()
+    //.TinyErodeRainfall()
+    //.TinyErodeRainfall()
+    //.AxelParisThermalErosion()
+    //.Gavoronoise() // требуется нормализация в диапазон 0...1
+    //.WaterErosionByEDog(); // требуется нормализация в диапазон 0...1
+    ;
+
+    Support(At)
+    .SetSize(SizeX, SizeY)
+    .Normalize(0.0f)
     .Save("Result.tiff");
 }
 
