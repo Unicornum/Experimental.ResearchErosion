@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Research.Erosion", "Research.Erosion\Research.Erosion.vcxproj", "{64EC0F71-F037-4C07-8D76-79A64429C050}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846} = {8D1FC8D7-9894-41EA-9D20-CEF5710CC846}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{AA6FE514-7916-48BC-97AE-6B5EC4315A66}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Externals.Build", "Externals.Build\Externals.Build.vcxproj", "{8D1FC8D7-9894-41EA-9D20-CEF5710CC846}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64EC0F71-F037-4C07-8D76-79A64429C050}.Debug|x64.ActiveCfg = Debug|x64
+		{64EC0F71-F037-4C07-8D76-79A64429C050}.Debug|x64.Build.0 = Debug|x64
+		{64EC0F71-F037-4C07-8D76-79A64429C050}.Release|x64.ActiveCfg = Release|x64
+		{64EC0F71-F037-4C07-8D76-79A64429C050}.Release|x64.Build.0 = Release|x64
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846}.Debug|x64.ActiveCfg = Debug|x64
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846}.Debug|x64.Build.0 = Debug|x64
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846}.Release|x64.ActiveCfg = Release|x64
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64EC0F71-F037-4C07-8D76-79A64429C050} = {AA6FE514-7916-48BC-97AE-6B5EC4315A66}
+		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846} = {AA6FE514-7916-48BC-97AE-6B5EC4315A66}
+	EndGlobalSection
+EndGlobal

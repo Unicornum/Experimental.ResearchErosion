@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <EndPathToLibs>$([System.String]::new($(Configuration)\lib).Replace('Release\', ''))</EndPathToLibs>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(SolutionDir)Solution\Solution\vcpkg_installed\x64-windows-static-md\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>$(SolutionDir)Solution\Solution\vcpkg_installed\x64-windows-static-md\$(EndPathToLibs)\*.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="EndPathToLibs">
+      <Value>$(EndPathToLibs)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

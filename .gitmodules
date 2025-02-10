@@ -1,0 +1,6 @@
+[submodule "Solution/Solution/Externals"]
+	path = Solution/Solution/Externals
+	url = https://github.com/microsoft/vcpkg.git
+[submodule "Solution/Solution/SimplexNoise"]
+	path = Solution/Solution/SimplexNoise
+	url = https://github.com/SRombauts/SimplexNoise
