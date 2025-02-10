@@ -1,6 +1,7 @@
 
 #pragma once
 #include <functional>
+#include <filesystem>
 
 class Support final
 {
@@ -10,6 +11,8 @@ public:
 public:
   Support & SetSize(const size_t, const size_t);
   Support & Normalize(const float);
+  Support & Load(const ::std::filesystem::path &);
+  Support & Save(const ::std::filesystem::path &);
 
 private:
   const At_t At;
