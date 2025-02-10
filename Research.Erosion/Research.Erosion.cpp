@@ -34,7 +34,8 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.Gavoronoise() // требуется нормализация в диапазон 0...1
-    .WaterErosionByEDog(); // требуется нормализация в диапазон 0...1
+    //.WaterErosionByEDog() // требуется нормализация в диапазон 0...1
+    .JobTalleHydraulicErosion() // требуется нормализация в диапазон 0...1
     ;
 
   Support(At)

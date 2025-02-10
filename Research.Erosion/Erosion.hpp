@@ -1,6 +1,7 @@
 
 #pragma once
 #include <functional>
+#include <glm/glm.hpp>
 
 class Erosion final
 {
@@ -23,6 +24,34 @@ public:
   Erosion & TinyErodeRainfall(void);
   Erosion & Gavoronoise(void);
   Erosion & WaterErosionByEDog(void);
+  Erosion & JobTalleHydraulicErosion(void);
+
+private:
+  //::glm::vec3 GetNormal(const int x, const int y)
+  //{
+  //  using namespace ::glm;
+
+  //  auto right = vec3(m_MetersPerXY * vec2(x + 1, y) / vec2(m_SizeX, m_SizeY), At(x + 1, y));
+  //  auto left = vec3(m_MetersPerXY * vec2(x - 1, y) / vec2(m_SizeX, m_SizeY), At(x - 1, y));
+  //  auto bottom = vec3(m_MetersPerXY * vec2(x, y + 1) / vec2(m_SizeX, m_SizeY), At(x, y + 1));
+  //  auto top = vec3(m_MetersPerXY * vec2(x, y - 1) / vec2(m_SizeX, m_SizeY), At(x, y - 1));
+
+  //  const auto Normal = ::glm::normalize(::glm::cross(right - left, bottom - top));
+  //  return (Normal.z >= 0.0f) ? Normal : -Normal;
+  //}
+
+  //::glm::vec3 GetNormal2(const int x, const int y)
+  //{
+  //  using namespace ::glm;
+
+  //  auto right = vec3(vec2(x + 1, y) * m_MetersPerXY, At(x + 1, y));
+  //  auto left = vec3(vec2(x - 1, y) * m_MetersPerXY, At(x - 1, y));
+  //  auto bottom = vec3(vec2(x, y + 1) * m_MetersPerXY, At(x, y + 1));
+  //  auto top = vec3(vec2(x, y - 1) * m_MetersPerXY, At(x, y - 1));
+
+  //  const auto Normal = ::glm::normalize(::glm::cross(right - left, bottom - top));
+  //  return (Normal.z >= 0.0f) ? Normal : -Normal;
+  //}
 
 private:
   const float m_MinWaterLevel = 0.01f;

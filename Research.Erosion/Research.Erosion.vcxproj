@@ -81,6 +81,7 @@
     <ClCompile Include="AxelParisThermalErosion.cpp" />
     <ClCompile Include="DommainDistortion.cpp" />
     <ClCompile Include="Gavoronoise.cpp" />
+    <ClCompile Include="JobTalleHydraulicErosion.cpp" />
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="TinyErodeRainfall.cpp" />

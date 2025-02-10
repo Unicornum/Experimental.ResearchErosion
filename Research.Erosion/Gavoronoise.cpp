@@ -101,11 +101,12 @@ Erosion & Erosion::Gavoronoise(void)
     {
       vec2 uv = vec2(x, y) / vec2(m_SizeX, m_SizeY);
 
-      auto v1 = vec3(vec2(x + 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x + 1, y));
-      auto v2 = vec3(vec2(x - 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x - 1, y));
-      auto v3 = vec3(vec2(x, y + 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y + 1));
-      auto v4 = vec3(vec2(x, y - 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y - 1));
-      const auto Normal = ::glm::normalize(::glm::cross(v4 - v3, v2 - v1));
+      auto right = vec3(m_MetersPerXY * vec2(x + 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x + 1, y));
+      auto left = vec3(m_MetersPerXY * vec2(x - 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x - 1, y));
+      auto bottom = vec3(m_MetersPerXY * vec2(x, y + 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y + 1));
+      auto top = vec3(m_MetersPerXY * vec2(x, y - 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y - 1));
+
+      const auto Normal = ::glm::normalize(::glm::cross(right - left, bottom - top));
       const auto NormalXY = ::glm::normalize(vec2(Normal.x, Normal.y));
 
       At(x, y) = mountain(

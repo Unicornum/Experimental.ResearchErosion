@@ -20,6 +20,9 @@
     <ClCompile Include="WaterErosionByEDog.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="JobTalleHydraulicErosion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
