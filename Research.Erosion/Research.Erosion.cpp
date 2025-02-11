@@ -11,30 +11,27 @@ void TestErosion(void)
 
   const auto At = [&](int x, int y) -> float &
   {
-    x = ::std::max(0, ::std::min(SizeX - 1, x));
-    y = ::std::max(0, ::std::min(SizeY - 1, y));
+    x = ::std::clamp(x, 0, SizeX - 1);
+    y = ::std::clamp(y, 0, SizeY - 1);
 
     return HeightMap[x + y * SizeX];
   };
 
   Support(At)
     .SetSize(SizeX, SizeY)
-    .Load("Source.tiff")
-    //.Normalize(0.0f)
-    //.Normalize(0.3f)
-    ;
+    .Load("Source.tiff");
 
   Erosion(At)
     .SetSize(SizeX, SizeY)
     //.SetSize(512, 512)
-    //.DommainDistortion() // требуется нормализация в диапазон 0...1
+    //.DommainDistortion()
     //.AxelParisThermalErosion()
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
-    //.Gavoronoise() // требуется нормализация в диапазон 0...1
-    //.WaterErosionByEDog() // требуется нормализация в диапазон 0...1
+    //.Gavoronoise()
+    //.WaterErosionByEDog()
     .JobTalleHydraulicErosion()
     ;
 

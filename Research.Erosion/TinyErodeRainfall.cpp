@@ -3,10 +3,20 @@
 #include "Erosion.hpp"
 #include "TinyErode.h"
 
+/**
+* \brief
+*  ### TinyErode
+*
+*  Источник: https://github.com/tay10r/TinyErode
+*
+*  Готовый для использования вариант (хотя совсем без танцев с бубном обойтись
+*  не удалось, в документации не прописанважный для работы библиотеки момент).
+*  
+*  Дает довольно грубый результат, много артефактов. Также подбор коэффициентов
+*  для получения пригодного результата требует невероятных усилий.
+*/
 Erosion & Erosion::TinyErodeRainfall(void)
 {
-  // https://github.com/tay10r/TinyErode/tree/main/docs
-
   m_Count++;
 
   auto getHeight = [&](int x, int y) -> float

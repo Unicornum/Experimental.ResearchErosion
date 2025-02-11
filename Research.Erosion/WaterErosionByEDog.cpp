@@ -4,10 +4,22 @@
 #include "Random.hpp"
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include "Support.hpp"
 
+/**
+* \brief
+*  ### Water Erosion by E-DOG
+*
+*  Источник: https://ranmantaru.com/blog/2011/10/08/water-erosion-on-heightmap-terrain/
+*  
+*  Работает быстро, дает вполне убедительный результат. При этом требует
+*  дополнительной обработки и блюра, т.к. генерирует много мусора.
+*/
 Erosion & Erosion::WaterErosionByEDog(void)
 {
-  // https://ranmantaru.com/blog/2011/10/08/water-erosion-on-heightmap-terrain/
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Normalize(0.0f);
 
   Random_t oRandom;
 
@@ -256,6 +268,10 @@ Erosion & Erosion::WaterErosionByEDog(void)
       At(x, y) = h;
     }
   }
+
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Blur(5.0f);
 
   return *this;
 }

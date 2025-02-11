@@ -3,11 +3,17 @@
 #include "Erosion.hpp"
 #include <glm/glm.hpp>
 
+/**
+* \brief
+*  ### Thermal Erosion by Axel Paris
+*
+*  Источник: https://aparis69.github.io/public_html/posts/terrain_erosion_2.html
+*  
+*  Простой алгоритм, не совсем полноценная эрозия (автор сам об этом пишет),
+*  дает нечто похожее на хребты гор, но склоны получаются неестественно ровными.
+*/
 Erosion & Erosion::AxelParisThermalErosion(void)
 {
-  // Дает нечто похожее на хребты гор, но склоны получаются неестественно ровными
-  // https://aparis69.github.io/public_html/posts/terrain_erosion_2.html
-
   const auto converseCellSize = 1.0f / m_MetersPerXY;
 
   const int nx = m_SizeX;

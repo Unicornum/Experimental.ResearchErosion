@@ -2,10 +2,23 @@
 #include <iostream>
 #include "Erosion.hpp"
 #include <glm/glm.hpp>
+#include "Support.hpp"
 
+/**
+* \brief
+*  ### Domain Distortion by Inigo Quilez
+*  
+*  Источник: https://iquilezles.org/articles/warp/
+*  
+*  Не вляется эрозией как таковой, дает красивый результат, но для реального
+*  использования в качестве карты высот пригодно разве что для генерации
+*  безумных инопланетных пейзажей.
+*/
 Erosion & Erosion::DommainDistortion(void)
 {
-  // https://iquilezles.org/articles/warp/
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Normalize(0.0f);
 
   using namespace ::glm;
 

@@ -3,10 +3,16 @@
 #include "Random.hpp"
 #include "Support.hpp"
 
+/**
+* \brief
+*  ### Water Hydraulic Erosion by Job Talle
+*
+*  Источник: https://jobtalle.com/simulating_hydraulic_erosion.html
+*
+*  Работает быстро, дает вполне убедительный результат.
+*/
 Erosion & Erosion::JobTalleHydraulicErosion(void)
 {
-  // https://jobtalle.com/simulating_hydraulic_erosion.html
-
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.0f);
@@ -27,19 +33,6 @@ Erosion & Erosion::JobTalleHydraulicErosion(void)
     const int y = (_Y + m_SizeY) % m_SizeY;
 
     return Erosion[x + y * m_SizeX];
-  };
-
-  const auto GetNormal = [&](const int x, const int y)
-  {
-    using namespace ::glm;
-
-    auto right =  vec3(vec2(x + 1, y) / vec2(m_SizeX, m_SizeY), At(x + 1, y));
-    auto left =   vec3(vec2(x - 1, y) / vec2(m_SizeX, m_SizeY), At(x - 1, y));
-    auto bottom = vec3(vec2(x, y + 1) / vec2(m_SizeX, m_SizeY), At(x, y + 1));
-    auto top =    vec3(vec2(x, y - 1) / vec2(m_SizeX, m_SizeY), At(x, y - 1));
-
-    const auto Normal = ::glm::normalize(::glm::cross(right - left, bottom - top));
-    return (Normal.z >= 0.0f) ? Normal : -Normal;
   };
 
   /**

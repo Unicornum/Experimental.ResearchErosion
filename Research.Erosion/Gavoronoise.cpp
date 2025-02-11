@@ -3,20 +3,27 @@
 #include "Erosion.hpp"
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include "Support.hpp"
 
+/**
+* \brief
+*  ### Eroded Terrain Noise
+*
+*  Источник: https://www.shadertoy.com/view/MtGcWh
+*
+*  Работает быстро (за один проход), по сути просто накладвает шум с учетом
+*  нормалей. Обработка готовой карты высот дает вполне убедительный результат.
+*/
 Erosion & Erosion::Gavoronoise(void)
 {
-  // https://www.shadertoy.com/view/MtGcWh
+  using namespace ::glm;
 
-  ::std::vector<float> Source(m_SizeX * m_SizeY);
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Normalize(0.3f);
 
-  const auto AtSource = [&](int _X, int _Y) -> float &
-  {
-    const int x = (_X + m_SizeX) % m_SizeX;
-    const int y = (_Y + m_SizeY) % m_SizeY;
-
-    return Source[x + y * m_SizeX];
-  };
+  // Нормали считаем сразу, т.к. они нужны для еще не измененной карты высот
+  ::std::vector<vec3> Normals(m_SizeX * m_SizeY);
 
 #   ifdef _OPENMP
 #   pragma omp parallel for
@@ -25,11 +32,9 @@ Erosion & Erosion::Gavoronoise(void)
   {
     for (int x = 0; x < m_SizeX; x++)
     {
-      AtSource(x, y) = At(x, y);
+      Normals[x + y * m_SizeX] = GetNormal(x, y);
     }
   }
-
-  using namespace ::glm;
 
   const auto hash = [&](vec2 x)
   {
@@ -75,8 +80,8 @@ Erosion & Erosion::Gavoronoise(void)
     //so that the direction of successive layers are based on the
     //past layers
     vec3 h = vec3(0.0f);
-    //float a = 0.7f * (smoothstep(0.3f, 0.5f, n.x * 0.5f + 0.5f)); //smooth the valleys
-    float a = 0.7f * (smoothstep(0.3f, 0.75f, n.x)); //smooth the valleys
+    float a = 0.7f * (smoothstep(0.4f, // нижняя высота обработки (0.2f даст изрезанную линию моря)
+      0.8f, n.x * 0.5f + 0.5f)); //smooth the valleys
     float f = 1.0f;
     for (int i = 0; i < 5; i++)
     {
@@ -99,19 +104,12 @@ Erosion & Erosion::Gavoronoise(void)
   {
     for (int x = 0; x < m_SizeX; x++)
     {
-      vec2 uv = vec2(x, y) / vec2(m_SizeX, m_SizeY);
-
-      auto right = vec3(m_MetersPerXY * vec2(x + 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x + 1, y));
-      auto left = vec3(m_MetersPerXY * vec2(x - 1, y) / vec2(m_SizeX, m_SizeY), AtSource(x - 1, y));
-      auto bottom = vec3(m_MetersPerXY * vec2(x, y + 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y + 1));
-      auto top = vec3(m_MetersPerXY * vec2(x, y - 1) / vec2(m_SizeX, m_SizeY), AtSource(x, y - 1));
-
-      const auto Normal = ::glm::normalize(::glm::cross(right - left, bottom - top));
-      const auto NormalXY = ::glm::normalize(vec2(Normal.x, Normal.y));
+      auto uv = vec2(x, y) / vec2(m_SizeX, m_SizeY);
+      auto & norm = Normals[x + y * m_SizeX];
 
       At(x, y) = mountain(
         uv * 48.0f, // степень изрезанности гор
-        vec3(AtSource(x, y), NormalXY));
+        vec3(At(x, y), vec2(norm.x, norm.y)));
     }
   }
 
