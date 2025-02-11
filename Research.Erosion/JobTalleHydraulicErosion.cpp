@@ -76,14 +76,17 @@ Erosion & Erosion::JobTalleHydraulicErosion(void)
     }
   };
 
-  // Simulate 50000 snowballs
-  const auto snowballs = 100000;
+  const auto snowballs = 200000;
 
   for (auto i = 0; i < snowballs; ++i)
   {
     trace(
-      Random(0.0f, 1.0f) * m_SizeX,
-      Random(0.0f, 1.0f) * m_SizeY);
+      //Random(0.0f, 1.0f) * m_SizeX,
+      //Random(0.0f, 1.0f) * m_SizeY);
+
+      // Дает более грубый - и более похожий на реальность результат.
+      10 * (int)(Random(0.0f, 0.1f) * m_SizeX),
+      10 * (int)(Random(0.0f, 0.1f) * m_SizeY));
   }
 
 #   ifdef _OPENMP
