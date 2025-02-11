@@ -10,7 +10,8 @@ public:
 
 public:
   Support & SetSize(const size_t, const size_t);
-  Support & Normalize(const float);
+  Support & Normalize(const float, float * = nullptr);
+  Support & Blur(const float);
   Support & Load(const ::std::filesystem::path &);
   Support & Save(const ::std::filesystem::path &);
 

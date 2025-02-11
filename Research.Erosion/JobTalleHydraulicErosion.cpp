@@ -1,10 +1,15 @@
 
 #include "Erosion.hpp"
 #include "Random.hpp"
+#include "Support.hpp"
 
 Erosion & Erosion::JobTalleHydraulicErosion(void)
 {
   // https://jobtalle.com/simulating_hydraulic_erosion.html
+
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Normalize(0.0f);
 
   const auto maxIterations = 80;
   const auto radius = 0.8f;
@@ -100,11 +105,15 @@ Erosion & Erosion::JobTalleHydraulicErosion(void)
       if (dh > 0.0125f) continue;
 
       auto h = At(x, y) + dh;
-      if (h < 0.2f) continue;
+      if (h < 0.3f) continue;
 
       At(x, y) = h;
     }
   }
+
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Blur(3.0f);
 
   return *this;
 }

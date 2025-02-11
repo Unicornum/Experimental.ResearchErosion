@@ -2,6 +2,7 @@
 #include "Support.hpp"
 #include <iostream>
 #include <tiffio.h>
+#include "fast_gaussian_blur_template.h"
 
 Support::Support(const At_t & _At) :
   At(_At)
@@ -16,7 +17,7 @@ Support & Support::SetSize(const size_t _SizeX, const size_t _SizeY)
   return *this;
 }
 
-Support & Support::Normalize(const float _WaterLevel)
+Support & Support::Normalize(const float _WaterLevel, float * _pMaxValue)
 {
   auto Min = At(0, 0);
   auto Max = At(0, 0);
@@ -32,6 +33,7 @@ Support & Support::Normalize(const float _WaterLevel)
   }
 
   if (Max == Min) return *this; // пустая карта высот
+  if (_pMaxValue != nullptr) *_pMaxValue = Max;
 
   ::std::cout << "World values min/max: " << Min << "/" << Max << ::std::endl;
 
@@ -46,6 +48,21 @@ Support & Support::Normalize(const float _WaterLevel)
       Value -= _WaterLevel; // -WaterLevel...1
     }
   }
+
+  return *this;
+}
+
+Support & Support::Blur(const float _Sigma)
+{
+  // https://github.com/bfraboni/FastGaussianBlur
+
+  auto * old_image = &At(0, 0);
+  ::std::vector<float> new_image(m_SizeX * m_SizeY);
+  auto * new_image_data = new_image.data();
+
+  fast_gaussian_blur(old_image, new_image_data, m_SizeX, m_SizeY, 1, _Sigma);
+
+  memcpy(old_image, ::std::data(new_image), ::std::size(new_image) * sizeof(float));
 
   return *this;
 }

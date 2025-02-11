@@ -21,7 +21,7 @@ void TestErosion(void)
     .SetSize(SizeX, SizeY)
     .Load("Source.tiff")
     //.Normalize(0.0f)
-    .Normalize(0.3f)
+    //.Normalize(0.3f)
     ;
 
   Erosion(At)
@@ -35,12 +35,12 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.Gavoronoise() // требуется нормализация в диапазон 0...1
     //.WaterErosionByEDog() // требуется нормализация в диапазон 0...1
-    .JobTalleHydraulicErosion() // требуется нормализация в диапазон 0...1
+    .JobTalleHydraulicErosion()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
-    //.Normalize(0.3f)
+    .Normalize(0.3f)
     .Save("Result.tiff");
 }
 
