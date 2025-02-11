@@ -271,7 +271,7 @@ Erosion & Erosion::WaterErosionByEDog(void)
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Blur(5.0f);
+    .Blur(3.0f);
 
   return *this;
 }

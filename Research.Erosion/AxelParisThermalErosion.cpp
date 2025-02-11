@@ -97,13 +97,13 @@ Erosion & Erosion::AxelParisThermalErosion(void)
     AtOutData(x, y) = z + WillMatter * amplitude;
   };
 
-  const auto Count = 1000;
+  const auto Count = 10;
 
   for (int i = 0; i < Count; i++)
   {
-    if (i % (Count / 100) == 0)
+    if (i % ::std::max(1, Count / 100) == 0)
     {
-      ::std::cout << "Erosion " << i / (Count / 100) << " % " << ::std::endl;
+      ::std::cout << "Erosion " << i / ::std::max(1, Count / 100) << " % " << ::std::endl;
     }
 
 #     ifdef _OPENMP

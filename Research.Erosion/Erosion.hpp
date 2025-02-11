@@ -26,7 +26,7 @@ public:
   Erosion & WaterErosionByEDog(void);
   Erosion & JobTalleHydraulicErosion(void);
 
-private:
+public:
   ::glm::vec3 GetNormal(const int x, const int y)
   {
     using namespace ::glm;

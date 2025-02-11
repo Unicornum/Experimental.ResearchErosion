@@ -17,6 +17,16 @@ void TestErosion(void)
     return HeightMap[x + y * SizeX];
   };
 
+  ::std::vector<uint32_t> Colors(SizeX * SizeY);
+
+  const auto AtRGBA = [&](int x, int y) -> uint32_t &
+  {
+    x = ::std::clamp(x, 0, SizeX - 1);
+    y = ::std::clamp(y, 0, SizeY - 1);
+
+    return Colors[x + y * SizeX];
+  };
+
   Support(At)
     .SetSize(SizeX, SizeY)
     .Load("Source.tiff");
@@ -31,14 +41,18 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.Gavoronoise()
-    //.WaterErosionByEDog()
-    .JobTalleHydraulicErosion()
+    .WaterErosionByEDog()
+    //.JobTalleHydraulicErosion()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
-    .Save("Result.tiff");
+    //.Blur(2.0f)
+    .Save("Result.tiff")
+    .ToRGBA(AtRGBA)
+    .Save("Colors.tiff", AtRGBA);
+    ;
 }
 
 int main()

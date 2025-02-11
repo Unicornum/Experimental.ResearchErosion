@@ -109,7 +109,7 @@ Erosion & Erosion::JobTalleHydraulicErosion(void)
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Blur(3.0f);
+    .Blur(4.0f);
 
   return *this;
 }
