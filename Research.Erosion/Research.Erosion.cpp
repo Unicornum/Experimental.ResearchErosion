@@ -29,7 +29,9 @@ void TestErosion(void)
 
   Support(At)
     .SetSize(SizeX, SizeY)
-    .Load("Source.tiff");
+    .Load("Source.tiff")
+    //.Normalize(0.0f)
+    ;
 
   Erosion(At)
     .SetSize(SizeX, SizeY)
@@ -44,7 +46,8 @@ void TestErosion(void)
     //.WaterErosionByEDog() // *
     //.JobTalleHydraulicErosion()
     //.ThermalErosionByDavidJorna()
-    .FastErosionByDavidJorna()
+    //.FastErosionByDavidJorna()
+    .HydraulicErosionByDavidJorna()
     ;
 
   Support(At)

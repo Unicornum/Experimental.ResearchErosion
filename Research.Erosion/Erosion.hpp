@@ -27,7 +27,8 @@ public:
   Erosion & JobTalleHydraulicErosion(void);
   Erosion & ThermalErosionByDavidJorna(void);
   Erosion & FastErosionByDavidJorna(void);
-  //Erosion & HydraulicErosionByDavidJorna(void);
+  Erosion & HydraulicErosionByDavidJorna(void);
+  //Erosion & PerturbByDavidJorna(void);
 
 public:
   ::glm::vec3 GetNormal(const int x, const int y)

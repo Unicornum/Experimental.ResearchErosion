@@ -77,8 +77,8 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
   const ::std::vector<vec4> colors =
   {
     { 0.0f, 0.15f, 0.3f, 0.15f },
-    { 0.3f, 0.3f, 0.45f, 0.3f  },
-    { 0.65f, 0.5f, 0.5f, 0.35f  },
+    { 0.4f, 0.3f, 0.45f, 0.3f  },
+    { 0.55f, 0.5f, 0.5f, 0.35f  },
     { 0.7f, 0.4f, 0.36f, 0.33f },
     { 0.9f, 1.1f, 1.1f, 1.1f   },
     { -1.0f, 0.25f, 0.41f, 0.88f },
@@ -88,11 +88,6 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
   {
     return vec3(colors[i].y, colors[i].z, colors[i].w);
   };
-
-  //const auto lerp = [](float a, float b, float weight)
-  //{
-  //  return a * weight + b * (1.0f - weight);
-  //};
 
   const auto ABGR = [](const uint8_t _A, const uint8_t _B, const uint8_t _G, const uint8_t _R)
   {
@@ -136,6 +131,8 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
 
         outcol *= sunlight;
       }
+
+      outcol += 0.05f; // ambient
 
       outcol.x = ::std::min(1.0f, outcol.x);
       outcol.y = ::std::min(1.0f, outcol.y);
