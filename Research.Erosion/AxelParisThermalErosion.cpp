@@ -1,6 +1,6 @@
 
-#include <iostream>
 #include "Erosion.hpp"
+#include <iostream>
 #include <glm/glm.hpp>
 
 /**
@@ -8,6 +8,7 @@
 *  ### Thermal Erosion by Axel Paris
 *
 *  Источник: https://aparis69.github.io/public_html/posts/terrain_erosion_2.html
+*  Скорость работы: медленно
 *  
 *  Простой алгоритм, не совсем полноценная эрозия (автор сам об этом пишет),
 *  дает нечто похожее на хребты гор, но склоны получаются неестественно ровными.
@@ -97,7 +98,7 @@ Erosion & Erosion::AxelParisThermalErosion(void)
     AtOutData(x, y) = z + WillMatter * amplitude;
   };
 
-  const auto Count = 10;
+  const auto Count = 1000;
 
   for (int i = 0; i < Count; i++)
   {

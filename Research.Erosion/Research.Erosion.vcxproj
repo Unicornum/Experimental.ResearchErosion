@@ -84,6 +84,7 @@
     <ClCompile Include="JobTalleHydraulicErosion.cpp" />
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="ThermalErosionByDavidJorna.cpp" />
     <ClCompile Include="TinyErodeRainfall.cpp" />
     <ClCompile Include="WaterErosionByEDog.cpp" />
   </ItemGroup>

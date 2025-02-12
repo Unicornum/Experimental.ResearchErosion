@@ -41,14 +41,15 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.Gavoronoise()
-    .WaterErosionByEDog()
+    //.WaterErosionByEDog() // *
     //.JobTalleHydraulicErosion()
+    .ThermalErosionByDavidJorna()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
-    //.Blur(2.0f)
+    //.Blur(10.0f)
     .Save("Result.tiff")
     .ToRGBA(AtRGBA)
     .Save("Colors.tiff", AtRGBA);

@@ -76,17 +76,19 @@ Erosion & Erosion::JobTalleHydraulicErosion(void)
     }
   };
 
-  const auto snowballs = 200000;
+  const auto snowballs = 
+    100000;
+    //50000; // более грубый результат
 
   for (auto i = 0; i < snowballs; ++i)
   {
     trace(
-      //Random(0.0f, 1.0f) * m_SizeX,
-      //Random(0.0f, 1.0f) * m_SizeY);
+      Random(0.0f, 1.0f) * m_SizeX,
+      Random(0.0f, 1.0f) * m_SizeY);
 
-      // Дает более грубый - и более похожий на реальность результат.
-      10 * (int)(Random(0.0f, 0.1f) * m_SizeX),
-      10 * (int)(Random(0.0f, 0.1f) * m_SizeY));
+      // Дает более грубый результат.
+      //10 * (int)(Random(0.0f, 0.1f) * m_SizeX),
+      //10 * (int)(Random(0.0f, 0.1f) * m_SizeY));
   }
 
 #   ifdef _OPENMP

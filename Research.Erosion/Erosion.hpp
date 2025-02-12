@@ -25,6 +25,7 @@ public:
   Erosion & Gavoronoise(void);
   Erosion & WaterErosionByEDog(void);
   Erosion & JobTalleHydraulicErosion(void);
+  Erosion & ThermalErosionByDavidJorna(void);
 
 public:
   ::glm::vec3 GetNormal(const int x, const int y)
