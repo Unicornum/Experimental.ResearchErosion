@@ -26,6 +26,9 @@
     <ClCompile Include="ThermalErosionByDavidJorna.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="FastErosionByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

@@ -43,7 +43,8 @@ void TestErosion(void)
     //.Gavoronoise()
     //.WaterErosionByEDog() // *
     //.JobTalleHydraulicErosion()
-    .ThermalErosionByDavidJorna()
+    //.ThermalErosionByDavidJorna()
+    .FastErosionByDavidJorna()
     ;
 
   Support(At)
