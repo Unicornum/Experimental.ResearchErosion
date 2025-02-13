@@ -38,6 +38,12 @@
     <ClCompile Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="MeanderingRivers.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerateErosionByBruegge.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

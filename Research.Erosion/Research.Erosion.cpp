@@ -45,10 +45,12 @@ void TestErosion(void)
     //.Gavoronoise()
     //.WaterErosionByEDog() // *
     //.JobTalleHydraulicErosion()
+    //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
-    .PerturbByDavidJorna()
+    .GenerateErosionByBruegge()
+    //.MeanderingRivers()
     ;
 
   Support(At)

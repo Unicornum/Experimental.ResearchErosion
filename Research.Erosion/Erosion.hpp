@@ -29,6 +29,8 @@ public:
   Erosion & FastErosionByDavidJorna(void);
   Erosion & HydraulicErosionByDavidJorna(void);
   Erosion & PerturbByDavidJorna(void);
+  Erosion & GenerateErosionByBruegge(void);
+  Erosion & MeanderingRivers(void);
 
 public:
   ::glm::vec3 GetNormal(const int x, const int y)
