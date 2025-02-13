@@ -47,13 +47,14 @@ void TestErosion(void)
     //.JobTalleHydraulicErosion()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
-    .HydraulicErosionByDavidJorna()
+    //.HydraulicErosionByDavidJorna()
+    .PerturbByDavidJorna()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
-    //.Blur(10.0f)
+    //.Blur(2.0f)
     .Save("Result.tiff")
     .ToRGBA(AtRGBA)
     .Save("Colors.tiff", AtRGBA);

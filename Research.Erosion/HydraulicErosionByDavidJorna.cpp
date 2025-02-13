@@ -12,6 +12,8 @@
 *
 *  Источник: https://github.com/djorna/terrain-generation
 *  Скорость работы: медленно
+*  
+*  Результат похож на .Blur(2.0f), а не на эрозию.
 */
 Erosion & Erosion::HydraulicErosionByDavidJorna(void)
 {
@@ -106,7 +108,14 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
 
   const auto rain = [&](void)
   {
-    //watermap += k_rain;
+#   pragma omp parallel for
+    for (int i = 0; i < m_SizeX; ++i)
+    {
+      for (int j = 0; j < m_SizeY; ++j)
+      {
+        AtWater(i, j) += k_rain;
+      }
+    }
   };
 
   const auto erosion = [&](void)
@@ -116,8 +125,6 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
     {
       for (int j = 0; j < m_SizeY; ++j)
       {
-        AtWater(i, j) += k_rain; // вместо rain()
-
         At(i, j) -= k_solubility * AtWater(i, j);
         AtSediment(i, j) += k_solubility * AtWater(i, j);
       }
@@ -179,6 +186,7 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
     // Apply difference operation
     //add(watermap, delta_watermap, watermap);
     //add(sedimentmap, delta_sedimentmap, sedimentmap);
+#   pragma omp parallel for
     for (int i = 0; i < m_SizeX; ++i)
     {
       for (int j = 0; j < m_SizeY; ++j)
@@ -191,7 +199,14 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
 
   const auto evaporate = [&](void)
   {
-    //watermap *= (1.0f - k_evaporation);
+#   pragma omp parallel for
+    for (int i = 0; i < m_SizeX; ++i)
+    {
+      for (int j = 0; j < m_SizeY; ++j)
+      {
+        AtWater(i, j) *= (1.0f - k_evaporation);
+      }
+    }
 
     ::std::vector<float> delta_sedimentmap(m_SizeX * m_SizeY, 0.0f);
 
@@ -200,8 +215,6 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
     {
       for (int j = 0; j < m_SizeY; ++j)
       {
-        AtWater(i, j) *= (1.0f - k_evaporation);
-
         float max_sediment = k_capacity * AtWater(i, j);
         float delta_sediment = std::max(0.0f, AtSediment(i, j) - max_sediment);
         // sedimentmap.at<float>(i, j) -= delta_sediment;
@@ -211,6 +224,7 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
     }
 
     //add(sedimentmap, delta_sedimentmap, sedimentmap);
+#   pragma omp parallel for
     for (int i = 0; i < m_SizeX; ++i)
     {
       for (int j = 0; j < m_SizeY; ++j)

@@ -32,6 +32,12 @@
     <ClCompile Include="HydraulicErosionByDavidJorna.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="PerturbByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -51,6 +57,9 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Erosion.hpp" />
+    <ClInclude Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Source.tiff" />

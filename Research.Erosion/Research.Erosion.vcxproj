@@ -78,12 +78,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.cpp" />
     <ClCompile Include="AxelParisThermalErosion.cpp" />
     <ClCompile Include="DommainDistortion.cpp" />
     <ClCompile Include="FastErosionByDavidJorna.cpp" />
     <ClCompile Include="Gavoronoise.cpp" />
     <ClCompile Include="HydraulicErosionByDavidJorna.cpp" />
     <ClCompile Include="JobTalleHydraulicErosion.cpp" />
+    <ClCompile Include="PerturbByDavidJorna.cpp" />
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="ThermalErosionByDavidJorna.cpp" />
@@ -97,6 +99,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.h" />
     <ClInclude Include="Erosion.hpp" />
     <ClInclude Include="Support.hpp" />
   </ItemGroup>
