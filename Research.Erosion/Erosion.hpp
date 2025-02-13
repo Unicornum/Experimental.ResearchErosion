@@ -30,6 +30,7 @@ public:
   Erosion & HydraulicErosionByDavidJorna(void);
   Erosion & PerturbByDavidJorna(void);
   Erosion & GenerateErosionByBruegge(void);
+  Erosion & GenerateErosion2ByBruegge(void);
   Erosion & MeanderingRivers(void);
 
 public:

@@ -113,5 +113,9 @@ Erosion & Erosion::Gavoronoise(void)
     }
   }
 
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Blur(4.0f);
+
   return *this;
 }
