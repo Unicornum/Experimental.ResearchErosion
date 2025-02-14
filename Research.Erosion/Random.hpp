@@ -50,7 +50,5 @@ public:
     m_Seed((_Seed == 0) ? ::std::random_device{}() : _Seed),
     m_Generator(m_Seed)
   {
-    ::std::cout << "World generated seed: " << 
-      ((_Seed == 0) ? "*" : "") << m_Seed << ::std::endl;
   }
 };

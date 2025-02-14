@@ -20,7 +20,7 @@ Erosion & Erosion::Gavoronoise(void)
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Normalize(0.3f);
+    .Normalize(0.0f);
 
   // Нормали считаем сразу, т.к. они нужны для еще не измененной карты высот
   ::std::vector<vec3> Normals(m_SizeX * m_SizeY);
@@ -70,7 +70,7 @@ Erosion & Erosion::Gavoronoise(void)
   const auto mountain = [&](vec2 p, vec3 n)
   {
     //take the curl of the normal to get the gradient facing down the slope
-    vec2 dir = vec2(n.z, -n.y);
+    vec2 dir = vec2(n.z, n.y) * vec2(1.0f, -1.0f);
     //vec2 dir = vec2(n.y, n.z); // тоже интересный эффект
 
     //Now we compute another fbm type noise
@@ -80,8 +80,7 @@ Erosion & Erosion::Gavoronoise(void)
     //so that the direction of successive layers are based on the
     //past layers
     vec3 h = vec3(0.0f);
-    float a = 0.7f * (smoothstep(0.4f, // нижняя высота обработки (0.2f даст изрезанную линию моря)
-      0.8f, n.x * 0.5f + 0.5f)); //smooth the valleys
+    float a = 0.7f * (smoothstep(0.3f, 0.5f, n.x/* * 0.5f + 0.5f*/)); //smooth the valleys
     float f = 1.0f;
     for (int i = 0; i < 5; i++)
     {
@@ -93,8 +92,9 @@ Erosion & Erosion::Gavoronoise(void)
     //remap height to [0,1] and add erosion
     //looks best when erosion amount is small
     //not sure about adding the normals together, but it looks okay
-    return smoothstep(-1.0f, 1.0f, n.x) + 
-      h.x * 0.1f; // глубина изрезанности гор
+    return //smoothstep(-1.0f, 1.0f, n.x) + 
+      n.x +
+      h.x * 0.05f; // глубина изрезанности гор
   };
 
 #   ifdef _OPENMP
@@ -108,14 +108,14 @@ Erosion & Erosion::Gavoronoise(void)
       auto & norm = Normals[x + y * m_SizeX];
 
       At(x, y) = mountain(
-        uv * 48.0f, // степень изрезанности гор
+        uv * 80.0f, // степень изрезанности гор
         vec3(At(x, y), vec2(norm.x, norm.y)));
     }
   }
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Blur(4.0f);
+    .Blur(2.0f);
 
   return *this;
 }

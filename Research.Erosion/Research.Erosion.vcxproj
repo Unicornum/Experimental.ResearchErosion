@@ -83,8 +83,6 @@
     <ClCompile Include="DommainDistortion.cpp" />
     <ClCompile Include="FastErosionByDavidJorna.cpp" />
     <ClCompile Include="Gavoronoise.cpp" />
-    <ClCompile Include="GenerateErosion2ByBruegge.cpp" />
-    <ClCompile Include="GenerateErosionByBruegge.cpp" />
     <ClCompile Include="HydraulicErosionByDavidJorna.cpp" />
     <ClCompile Include="JobTalleHydraulicErosion.cpp" />
     <ClCompile Include="MeanderingRivers.cpp" />

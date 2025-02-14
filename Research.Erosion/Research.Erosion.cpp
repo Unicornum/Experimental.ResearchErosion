@@ -42,21 +42,20 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
-    //.Gavoronoise()
+    .Gavoronoise() // результат будет лучше, если сначала сделать AxelParisThermalErosion()
     //.WaterErosionByEDog() // *
     //.JobTalleHydraulicErosion()
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
-    .GenerateErosionByBruegge()
     //.MeanderingRivers()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
-     //.Blur(3.0f)
     .Normalize(0.3f)
+     //.Blur(3.0f)
     .Save("Result.tiff")
     .ToRGBA(AtRGBA)
     .Save("Colors.tiff", AtRGBA);

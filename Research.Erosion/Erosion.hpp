@@ -25,12 +25,11 @@ public:
   Erosion & Gavoronoise(void);
   Erosion & WaterErosionByEDog(void);
   Erosion & JobTalleHydraulicErosion(void);
+  Erosion & PerturbByDavidJorna(void);
   Erosion & ThermalErosionByDavidJorna(void);
   Erosion & FastErosionByDavidJorna(void);
   Erosion & HydraulicErosionByDavidJorna(void);
-  Erosion & PerturbByDavidJorna(void);
-  Erosion & GenerateErosionByBruegge(void);
-  Erosion & GenerateErosion2ByBruegge(void);
+
   Erosion & MeanderingRivers(void);
 
 public:

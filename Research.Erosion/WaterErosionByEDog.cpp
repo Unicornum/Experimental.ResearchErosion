@@ -34,7 +34,7 @@ Erosion & Erosion::WaterErosionByEDog(void)
   const auto minval = [](auto v1, auto v2) { return ::std::min(v1, v2); };
   using Point2 = ::glm::vec2;
 
-  unsigned iterations = m_SizeX * m_SizeY / 125;
+  unsigned iterations = m_SizeX * m_SizeY / 250;
 
   // Kq=10; Kw=0.001f; Kr=0.9f; Kd=0.02f; Ki=0.1f; minSlope=0.05f; g=20;
 
@@ -57,7 +57,7 @@ Erosion & Erosion::WaterErosionByEDog(void)
   {
     int index = x + y * m_SizeX;
     if (index < 0) return 0;
-    if (index >= m_SizeX * m_SizeY) return (int)(m_SizeX * m_SizeY);
+    if (index >= m_SizeX * m_SizeY) return (int)(m_SizeX * m_SizeY) - 1;
     return index;
   };
 
@@ -271,7 +271,7 @@ Erosion & Erosion::WaterErosionByEDog(void)
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Blur(3.0f);
+    .Blur(2.0f);
 
   return *this;
 }

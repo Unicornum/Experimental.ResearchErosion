@@ -12,6 +12,7 @@
 *  
 *  ѕростой алгоритм, не совсем полноценна€ эрози€ (автор сам об этом пишет),
 *  дает нечто похожее на хребты гор, но склоны получаютс€ неестественно ровными.
+*  ћожно использовать как предварительный проход перед другим способом обработки.
 */
 Erosion & Erosion::AxelParisThermalErosion(void)
 {
@@ -121,5 +122,5 @@ Erosion & Erosion::AxelParisThermalErosion(void)
     ::std::swap(AtData, AtOutData);
   }
 
-  *this;
+  return *this;
 }
