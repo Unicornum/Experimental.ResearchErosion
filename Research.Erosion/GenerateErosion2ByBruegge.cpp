@@ -10,21 +10,22 @@
 *
 *  »сточник: https://github.com/bruegge/Realtime-Procedural-Terrain-Generation
 *  —корость работы: медленно
+*  
+*  “акое впечатление, что функци€ GenerateErosion2() просто недоработана -
+*  она нигде не используетс€, обработка дает на выходе огромные числа (1e38),
+*  а код содержит странные вещи вроде такого (неоднократно!):
+*  if (...)
+*  {
+*    int muh = 0;
+*    muh++;
+*  }
+
 */
 Erosion & Erosion::GenerateErosion2ByBruegge(void)
 {
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.0f);
-
-  // “акое впечатление, что функци€ GenerateErosion2() просто недоработана,
-  // обработка дает на выходе огромные числа (1e38), а код содержит странные
-  // вещи вроде такого:
-  //if (x == 2 && y == 2 && dTotal == 0.0f)
-  //{
-  //  int muh = 0;
-  //  muh++;
-  //}
 
   return *this;
 }

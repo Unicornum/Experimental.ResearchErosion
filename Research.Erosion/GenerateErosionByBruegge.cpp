@@ -1,6 +1,7 @@
 
 #include "Erosion.hpp"
 #include <algorithm>
+#include <iostream>
 #include"Support.hpp"
 
 /**
@@ -8,7 +9,7 @@
 *  ### Generate Erosion by Bruegge
 *
 *  »сточник: https://github.com/bruegge/Realtime-Procedural-Terrain-Generation
-*  —корость работы: быстро
+*  —корость работы: медленно
 */
 Erosion & Erosion::GenerateErosionByBruegge(void)
 {
@@ -16,51 +17,46 @@ Erosion & Erosion::GenerateErosionByBruegge(void)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.0f);
 
-  ::std::vector<float> SourceHeightMap(m_SizeX * m_SizeY, 0.0f);
+  ::std::vector<float> TempHeightMap(m_SizeX * m_SizeY, 0.0f);
 
-  const auto AtSourceHeightMap = [&](int x, int y) -> float &
+  At_t GetTerrainHeight = At;
+
+  At_t AtResult = [&](int x, int y) -> float &
   {
-    // ¬ оригинале и дл€ чтени€ и дл€ записи используетс€ одна и та же карта
-    // высот, но в этом случае получаетс€ нечто вроде сглаживани€ неровностей.
-    //return At(x, y);
     x = ::std::clamp(x, 0, (int)m_SizeX - 1);
     y = ::std::clamp(y, 0, (int)m_SizeY - 1);
 
-    return SourceHeightMap[x + y * m_SizeX];
+    return TempHeightMap[x + y * m_SizeX];
   };
 
-  for (int i = 0; i < m_SizeX; ++i)
-  {
-    for (int j = 0; j < m_SizeY; ++j)
-    {
-      AtSourceHeightMap(i, j) = At(i, j);
-    }
-  }
+  auto m_nWidth = ::std::max(m_SizeX, m_SizeY);
 
-  float di[3][3] = { 0 };
-  float hi[3][3] = { 0 };
+  float di[3][3];
+  float hi[3][3];
   float c = 0.25f;
-  float N = m_SizeX;//m_nWidth;
-  float T = 0.015f;//8.0f * 4.0f / N;
+  float N = m_nWidth;
+  float T = 4.0f / N;
 
-  for (int step = 0; step < 100; ++step);
+  for (int step = 0; step < 100; ++step) //; - так было в оригинале, рукалицо
   {
-    for (int i = 1; i < m_SizeX - 1; ++i)
+    ::std::cout << "Erosion step: " << step << "/" << 100 << ::std::endl;
+
+    for (int i = 1; i < m_nWidth - 1; ++i)
     {
-      for (int j = 1; j < m_SizeY - 1; ++j)
+      for (int j = 1; j < m_nWidth - 1; ++j)
       {
         int indexXDmax = 0;
         int indexYDmax = 0;
-        float dTotal = 0.02f;
+        float dTotal = 1.0f;
 
         //calculate neighborhoodHeights
-        float h = AtSourceHeightMap(i, j);
+        float h = GetTerrainHeight(i, j);
         for (int x = 0; x < 3; ++x)
         {
           for (int y = 0; y < 3; ++y)
           {
-            hi[x][y] = AtSourceHeightMap(i + (x - 1), j + (y - 1));
-            di[x][y] = h - AtSourceHeightMap(i + (x - 1), j + (y - 1));
+            hi[x][y] = GetTerrainHeight(i + (x - 1), j + (y - 1));
+            di[x][y] = h - GetTerrainHeight(i + (x - 1), j + (y - 1));
 
             if (hi[x][y] > hi[indexXDmax][indexYDmax])
             {
@@ -79,16 +75,14 @@ Erosion & Erosion::GenerateErosionByBruegge(void)
           for (int y = 0; y < 3; ++y)
           {
             hi[x][y] = hi[x][y] + c * (hi[indexXDmax][indexYDmax] - T) * di[x][y] / dTotal;
-            At((i + x - 1), (j + y - 1)) = hi[x][y];
+            AtResult((i + x - 1), (j + y - 1)) = hi[x][y];
           }
         }
       }
     }
-  }
 
-  Support(At)
-    .SetSize(m_SizeX, m_SizeY)
-    .Blur(2.0f);
+    ::std::swap(GetTerrainHeight, AtResult);
+  }
 
   return *this;
 }
