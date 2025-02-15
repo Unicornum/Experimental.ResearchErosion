@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Research.Erosion.cpp" />
+    <ClCompile Include="DommainDistortion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gavoronoise.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterErosionByEDog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThermalErosionByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FastErosionByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HydraulicErosionByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PerturbByDavidJorna.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiScaleErosion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleErosionByNickMcDonald.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainErosionByAdrianBlumer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThermalErosionByAxelParis.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HydraulicErosionByJobTalle.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyErode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleHydrologyByNickMcDonald.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanderingRiversByAxelParis.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimplexNoise\src\SimplexNoise.cpp">
+      <Filter>Externals</Filter>
+    </ClCompile>
+    <ClCompile Include="Support.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{c2260d88-e7b0-4c5c-85c8-ed57f5e7ee22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c8e9f5c7-d9b9-4e9a-879f-77fca5e723b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Externals">
+      <UniqueIdentifier>{6ce5d61b-da55-460f-806f-062bc9bf2efe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Version.rc">
+      <Filter>Common</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Erosion.hpp" />
+    <ClInclude Include="..\SimplexNoise\src\SimplexNoise.h">
+      <Filter>Externals</Filter>
+    </ClInclude>
+    <ClInclude Include="Support.hpp" />
+  </ItemGroup>
+</Project>
