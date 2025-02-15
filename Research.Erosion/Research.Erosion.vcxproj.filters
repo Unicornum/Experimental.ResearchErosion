@@ -41,6 +41,9 @@
     <ClCompile Include="MeanderingRivers.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="MultiScaleErosion.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

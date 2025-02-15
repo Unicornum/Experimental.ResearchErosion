@@ -29,6 +29,7 @@ public:
   Erosion & ThermalErosionByDavidJorna(void);
   Erosion & FastErosionByDavidJorna(void);
   Erosion & HydraulicErosionByDavidJorna(void);
+  Erosion & MultiScaleErosion(void);
 
   Erosion & MeanderingRivers(void);
 

@@ -86,6 +86,7 @@
     <ClCompile Include="HydraulicErosionByDavidJorna.cpp" />
     <ClCompile Include="JobTalleHydraulicErosion.cpp" />
     <ClCompile Include="MeanderingRivers.cpp" />
+    <ClCompile Include="MultiScaleErosion.cpp" />
     <ClCompile Include="PerturbByDavidJorna.cpp" />
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="Support.cpp" />
