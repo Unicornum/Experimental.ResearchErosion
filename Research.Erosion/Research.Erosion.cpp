@@ -42,13 +42,15 @@ void TestErosion(void)
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
     //.TinyErodeRainfall()
-    .Gavoronoise() // результат будет лучше, если сначала сделать AxelParisThermalErosion()
+    //.Gavoronoise()
+    //.AxelParisThermalErosion().Gavoronoise() // *
     //.WaterErosionByEDog() // *
-    //.JobTalleHydraulicErosion()
+    //.JobTalleHydraulicErosion() // *
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
+    .MultiScaleErosion()
     //.MeanderingRivers()
     ;
 

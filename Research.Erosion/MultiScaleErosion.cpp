@@ -88,8 +88,9 @@ Erosion & Erosion::MultiScaleErosion(void)
     return max_slope;
   };
 
-  const auto Hash = [](vec3 p)
+  const auto Hash = [&](vec3 p)
   {
+    p.x = float(int(p.x) % 20) + fract(p.x);
     p = fract(p * 0.3199f + 0.152f);
     p *= 17.0f;
     return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
@@ -195,9 +196,9 @@ Erosion & Erosion::MultiScaleErosion(void)
     return sed_flow;
   };
 
-  for (auto iFrame = 0; iFrame < 300; iFrame++)
+  for (auto iFrame = 0; iFrame < 600; iFrame++)
   {
-    ::std::cout << "Erosion pass " << iFrame << "/" << 300 << ::std::endl;
+    ::std::cout << "Erosion pass " << iFrame << "/" << 600 << ::std::endl;
 
 #   pragma omp parallel for
     for (auto y = 0; y < m_SizeY; y++)
@@ -226,26 +227,26 @@ Erosion & Erosion::MultiScaleErosion(void)
 
           continue;
         }
-        else if (iFrame % 400 < 200)
+        else if (iFrame < 250)
         {
           // SPE
           vec2 steepest_p;
           float s = Steepest(p, steepest_p);
           float steepest_h = Height(steepest_p);
-          float spe = 0.3f * min(3.f, pow(Flow(p), 0.8f) * s * s) * Softness(p);
+          float spe = 0.4f * min(3.f, pow(Flow(p), 0.8f) * s * s) * Softness(p);
           result[Index(p)].x = max(steepest_h, Height(p) - spe);
           result[Index(p)].z = Sed(p);
           result[Index(p)].w = max(0.f, Depo(p) - (Height(p) - result[Index(p)].x));
         }
-        else if (iFrame % 400 < 100) // перед SPE выглядит лучше
+        else if (iFrame < 400)
         {
           // THERMAL
-          int thermal_delta = GetThermalDelta(p, 0.15f * (0.04f + 0.02f * Softness(p)));
+          int thermal_delta = GetThermalDelta(p, (0.04f + 0.02f * Softness(p)));
           result[Index(p)].x = Height(p) + 0.003f * float(thermal_delta);
           result[Index(p)].z = Sed(p);
           result[Index(p)].w = Depo(p);
         }
-        else //if (iFrame % 400 < 290)
+        else
         {
           // DEPOSITION
           vec2 steepest_p;
@@ -254,7 +255,7 @@ Erosion & Erosion::MultiScaleErosion(void)
           float new_sed = GetSedFlow(p);
           float depo_index = max(0.f, new_sed - 0.7f * spe);
           float depo = min(new_sed, 0.01f * depo_index);
-          result[Index(p)].x = Height(p) + 5.0f * depo;
+          result[Index(p)].x = Height(p) + 2.0f * depo;
           result[Index(p)].z = new_sed + 0.1f * spe - depo;
           result[Index(p)].w = Depo(p) + depo;
         }
