@@ -50,14 +50,15 @@ void TestErosion(void)
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
-    .MultiScaleErosion()
+    //.MultiScaleErosion()
+    .SimpleErosionByNickMcDonald()
     //.MeanderingRivers()
     ;
 
   Support(At)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
-     //.Blur(3.0f)
+    //.Blur(2.0f)
     .Save("Result.tiff")
     .ToRGBA(AtRGBA)
     .Save("Colors.tiff", AtRGBA);

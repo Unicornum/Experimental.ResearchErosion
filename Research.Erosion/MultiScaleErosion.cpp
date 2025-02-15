@@ -11,6 +11,12 @@
 *
 *  Источник: https://github.com/H-Schott/MultiScaleErosion
 *  Скорость работы: медленно
+*  
+*  Исходный вариант был оптимизирован для карты высот 512х512, поэтому он
+*  идеально подходит для исходной карты высот, уменьшенной до этого размера
+*  (обработка отдельно участка не помогает, т.е. дело именно в уклоне
+*  поверхности), а для карты большего размера нужно в Slope() добавить
+*  домножение на коэффициент > 1 bk увеличивать количество проходов.
 */
 Erosion & Erosion::MultiScaleErosion(void)
 {
@@ -21,6 +27,10 @@ Erosion & Erosion::MultiScaleErosion(void)
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.0f);
+
+  const auto Count = 600; const auto kSlope = 1.0f; // первоначальный вариант
+  //const auto Count = 100; const auto kSlope = 5.0f; // тоже рабочие, но
+  //const auto Count = 50; const auto kSlope = 6.0f;  // слабый эффект DEPOSITION
 
   float flow_routing_exp = 1.3f;
 
@@ -64,7 +74,7 @@ Erosion & Erosion::MultiScaleErosion(void)
 
   const auto Slope = [&](vec2 p, vec2 q)
   {
-    return (Height(p) - Height(q)) / length(p - q);
+    return kSlope * (Height(p) - Height(q)) / length(p - q);
   };
 
   const auto Steepest = [&](vec2 p, vec2 & q)
@@ -196,9 +206,9 @@ Erosion & Erosion::MultiScaleErosion(void)
     return sed_flow;
   };
 
-  for (auto iFrame = 0; iFrame < 600; iFrame++)
+  for (auto iFrame = 0; iFrame < Count; iFrame++)
   {
-    ::std::cout << "Erosion pass " << iFrame << "/" << 600 << ::std::endl;
+    ::std::cout << "Erosion pass " << iFrame << "/" << Count << ::std::endl;
 
 #   pragma omp parallel for
     for (auto y = 0; y < m_SizeY; y++)
@@ -207,7 +217,7 @@ Erosion & Erosion::MultiScaleErosion(void)
       {
         vec2 p = vec2(x, y);// / vec2(m_SizeX, m_SizeY);
 
-        if (iFrame < 10)
+        if (iFrame < 1)
         {
           // init Height
           //result.x = Terrain(p);
@@ -227,7 +237,7 @@ Erosion & Erosion::MultiScaleErosion(void)
 
           continue;
         }
-        else if (iFrame < 250)
+        else if (iFrame < 2 * Count / 5)
         {
           // SPE
           vec2 steepest_p;
@@ -238,7 +248,7 @@ Erosion & Erosion::MultiScaleErosion(void)
           result[Index(p)].z = Sed(p);
           result[Index(p)].w = max(0.f, Depo(p) - (Height(p) - result[Index(p)].x));
         }
-        else if (iFrame < 400)
+        else if (iFrame < 2 * Count / 3)
         {
           // THERMAL
           int thermal_delta = GetThermalDelta(p, (0.04f + 0.02f * Softness(p)));
@@ -254,8 +264,8 @@ Erosion & Erosion::MultiScaleErosion(void)
           float spe = pow(Flow(p), 0.8f) * s * s;
           float new_sed = GetSedFlow(p);
           float depo_index = max(0.f, new_sed - 0.7f * spe);
-          float depo = min(new_sed, 0.01f * depo_index);
-          result[Index(p)].x = Height(p) + 2.0f * depo;
+          float depo = 2.0f * min(new_sed, 0.01f * depo_index);
+          result[Index(p)].x = Height(p) + depo;
           result[Index(p)].z = new_sed + 0.1f * spe - depo;
           result[Index(p)].w = Depo(p) + depo;
         }
