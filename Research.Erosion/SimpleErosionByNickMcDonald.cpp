@@ -8,7 +8,7 @@
 *  ### Simple Erosion by Nick McDonald
 *
 *  Источник: https://github.com/weigert/SimpleErosion
-*  Скорость работы: ???
+*  Скорость работы: медленно
 */
 Erosion & Erosion::SimpleErosionByNickMcDonald(void)
 {
@@ -17,14 +17,16 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
     .Normalize(0.0f);
 
   //Particle Properties
-  float dt = 3.0f * 1.2;
-  float density = 1.0;  //This gives varying amounts of inertia and stuff...
+  float dt = 1.0f;
+  float density = 0.5f;  //This gives varying amounts of inertia and stuff...
   float evapRate = 0.001;
-  float depositionRate = 0.1;
+  float depositionRate = 0.25f;
   float minVol = 0.01;
-  float friction = 0.05;
+  float friction = 0.25;
 
-  double scale = 650.0;                  //"Physical" Height scaling of the map
+  const int erosionstep = m_SizeX * m_SizeY / 16;
+
+  //double scale = 1.5f * 60.0;                  //"Physical" Height scaling of the map
   double heightmap[2049][2049] = { 0.0 };
 
   for (int y = 0; y < m_SizeY; y++)
@@ -53,32 +55,14 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
 
   const auto surfaceNormal = [&](int i, int j)
   {
-    /*
-      Note: Surface normal is computed in this way, because the square-grid surface is meshed using triangles.
-      To avoid spatial artifacts, you need to weight properly with all neighbors.
-    */
-
-    glm::vec3 n = glm::vec3(0.15) * glm::normalize(glm::vec3(scale * (heightmap[i][j] - heightmap[i + 1][j]), 1.0, 0.0));  //Positive X
-    n += glm::vec3(0.15) * glm::normalize(glm::vec3(scale * (heightmap[i - 1][j] - heightmap[i][j]), 1.0, 0.0));  //Negative X
-    n += glm::vec3(0.15) * glm::normalize(glm::vec3(0.0, 1.0, scale * (heightmap[i][j] - heightmap[i][j + 1])));    //Positive Y
-    n += glm::vec3(0.15) * glm::normalize(glm::vec3(0.0, 1.0, scale * (heightmap[i][j - 1] - heightmap[i][j])));  //Negative Y
-
-    //Diagonals! (This removes the last spatial artifacts)
-    n += glm::vec3(0.1) * glm::normalize(glm::vec3(scale * (heightmap[i][j] - heightmap[i + 1][j + 1]) / sqrt(2), sqrt(2), scale * (heightmap[i][j] - heightmap[i + 1][j + 1]) / sqrt(2)));    //Positive Y
-    n += glm::vec3(0.1) * glm::normalize(glm::vec3(scale * (heightmap[i][j] - heightmap[i + 1][j - 1]) / sqrt(2), sqrt(2), scale * (heightmap[i][j] - heightmap[i + 1][j - 1]) / sqrt(2)));    //Positive Y
-    n += glm::vec3(0.1) * glm::normalize(glm::vec3(scale * (heightmap[i][j] - heightmap[i - 1][j + 1]) / sqrt(2), sqrt(2), scale * (heightmap[i][j] - heightmap[i - 1][j + 1]) / sqrt(2)));    //Positive Y
-    n += glm::vec3(0.1) * glm::normalize(glm::vec3(scale * (heightmap[i][j] - heightmap[i - 1][j - 1]) / sqrt(2), sqrt(2), scale * (heightmap[i][j] - heightmap[i - 1][j - 1]) / sqrt(2)));    //Positive Y
-
-    return n;
+    return 0.35f * GetNormal(i, j);
   };
 
-  const auto Count = 100000;
-
-  for (int i = 0; i < Count; i++)
+  for (int i = 0; i < erosionstep; i++)
   {
-    if (i % ::std::max(1, Count / 100) == 0)
+    if (i % ::std::max(1, erosionstep / 100) == 0)
     {
-      ::std::cout << "Erosion " << i / ::std::max(1, Count / 100) << " % " << ::std::endl;
+      ::std::cout << "Erosion " << i / ::std::max(1, erosionstep / 100) << " % " << ::std::endl;
     }
 
     //Spawn New Particle
@@ -126,10 +110,6 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
       At(x, y)= ::std::clamp((float)heightmap[x][y], 0.0f, 1.0f);
     }
   }
-
-  Support(At)
-    .SetSize(m_SizeX, m_SizeY)
-    .Blur(3.0f);
 
   return *this;
 }

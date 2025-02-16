@@ -1,6 +1,7 @@
 
 #include "Erosion.hpp"
 #include <random>
+#include <iostream>
 #include"Support.hpp"
 
 /**
@@ -14,7 +15,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
 {
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Normalize(0.0f);
+    .Normalize(0.5f);
 
   using namespace ::glm;
   using ushort = uint16_t;
@@ -28,6 +29,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
   auto lX = 1.0;
   auto lY = 1.0;
   auto gravity = 9.81;
+  auto RainCount = m_SizeX * m_SizeY / 2000;
 
   RANDOM rnd(1234567);
 
@@ -154,7 +156,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
   {
     std::uniform_int_distribution<ushort> rndInt(1, m_SizeX - 2);
 
-    for (uint i = 0; i < m_SizeX * m_SizeY / 2000; i++)
+    for (uint i = 0; i < RainCount; i++)
     {
       uint x = rndInt(rnd);
       uint y = rndInt(rnd);
@@ -532,7 +534,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
       {
         for (int x = 0; x < m_SizeX; ++x)
         {
-          terrain(x, y) = tmpSediment(x, y);
+          terrain(y, x) = tmpSediment(y, x);
         }
       }
 
@@ -570,9 +572,9 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
     //computeSurfaceNormals();
   }
 
-  //Support(At)
-  //  .SetSize(m_SizeX, m_SizeY)
-  //  .Blur(1.0f);
+  Support(At)
+    .SetSize(m_SizeX, m_SizeY)
+    .Blur(1.0f);
 
   return *this;
 }
