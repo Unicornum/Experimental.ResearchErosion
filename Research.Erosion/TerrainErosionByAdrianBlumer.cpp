@@ -154,7 +154,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
   {
     std::uniform_int_distribution<ushort> rndInt(1, m_SizeX - 2);
 
-    for (uint i = 0; i < 200; i++)
+    for (uint i = 0; i < m_SizeX * m_SizeY / 2000; i++)
     {
       uint x = rndInt(rnd);
       uint y = rndInt(rnd);
