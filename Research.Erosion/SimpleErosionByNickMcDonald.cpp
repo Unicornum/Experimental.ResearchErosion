@@ -17,7 +17,7 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
     .Normalize(0.0f);
 
   //Particle Properties
-  float dt = 3.8f * 1.2;
+  float dt = 3.0f * 1.2;
   float density = 1.0;  //This gives varying amounts of inertia and stuff...
   float evapRate = 0.001;
   float depositionRate = 0.1;
@@ -72,9 +72,14 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
     return n;
   };
 
-  for (int i = 0; i < 100000; i++)
+  const auto Count = 100000;
+
+  for (int i = 0; i < Count; i++)
   {
-    ::std::cout << "Erosion pass " << i << "/" << 100000 << ::std::endl;
+    if (i % ::std::max(1, Count / 100) == 0)
+    {
+      ::std::cout << "Erosion " << i / ::std::max(1, Count / 100) << " % " << ::std::endl;
+    }
 
     //Spawn New Particle
     glm::vec2 newpos = glm::vec2(rand() % (int)m_SizeX, rand() % (int)m_SizeY);
@@ -118,7 +123,7 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
   {
     for (int x = 0; x < m_SizeX; x++)
     {
-      At(x, y)= heightmap[x][y];
+      At(x, y)= ::std::clamp((float)heightmap[x][y], 0.0f, 1.0f);
     }
   }
 

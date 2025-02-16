@@ -47,6 +47,9 @@
     <ClCompile Include="SimpleErosionByNickMcDonald.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="TerrainErosionByAdrianBlumer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

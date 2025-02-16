@@ -31,6 +31,7 @@ public:
   Erosion & HydraulicErosionByDavidJorna(void);
   Erosion & MultiScaleErosion(void);
   Erosion & SimpleErosionByNickMcDonald(void);
+  Erosion & TerrainErosionByAdrianBlumer(void);
 
   Erosion & MeanderingRivers(void);
 

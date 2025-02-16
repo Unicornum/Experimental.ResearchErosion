@@ -93,6 +93,7 @@
     <ClCompile Include="Research.Erosion.cpp" />
     <ClCompile Include="SimpleErosionByNickMcDonald.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="TerrainErosionByAdrianBlumer.cpp" />
     <ClCompile Include="ThermalErosionByDavidJorna.cpp" />
     <ClCompile Include="TinyErodeRainfall.cpp" />
     <ClCompile Include="WaterErosionByEDog.cpp" />
