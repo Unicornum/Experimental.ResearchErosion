@@ -15,22 +15,19 @@
 Erosion & Erosion::TinyErode(void)
 {
   const float MinWaterLevel = 0.01f;
-  const float MetersPerXY = 2.0f;
+  const float MetersPerXY = 15.0f;
   ::std::vector<float> m_Water(m_SizeX * m_SizeY, MinWaterLevel);
 
   auto getHeight = [&](int x, int y)
   {
-    //return At(x, y);
-    return ::std::max(MinWaterLevel, At(x, y));
+    return At(x, y);
   };
 
   auto addHeight = [&](int x, int y, float deltaHeight)
   {
-    if (At(x, y) < 100.0f) return;
+    if (At(x, y) < 150.0f) return;
 
     At(x, y) += deltaHeight;
-    At(x, y) = ::std::min(650.0f, At(x, y));
-    At(x, y) = ::std::max(-100.0f, At(x, y));
   };
 
   auto getWater = [&](int x, int y)
@@ -50,14 +47,14 @@ Erosion & Erosion::TinyErode(void)
   };
 
   auto carryCapacity = [](int x, int y) { return 0.01f; };
-  auto deposition = [](int x, int y) { return 0.01f; };
-  auto erosion = [](int x, int y) { return 0.01f; };
-  auto evaporation = [](int x, int y) { return 0.001f; };
+  auto deposition = [](int x, int y) { return 0.1f; };
+  auto erosion = [](int x, int y) { return 0.1f; };
+  auto evaporation = [](int x, int y) { return 0.01f; };
 
   for (int Count = 0; Count < 4; Count++)
   {
     ::TinyErode::Simulation simulation(m_SizeX, m_SizeX);
-    simulation.SetTimeStep(0.01f);
+    simulation.SetTimeStep(0.1f);
     simulation.SetMetersPerX(MetersPerXY);
     simulation.SetMetersPerY(MetersPerXY);
 
