@@ -89,7 +89,7 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
     return vec3(colors[i].y, colors[i].z, colors[i].w);
   };
 
-  const auto ABGR = [](const uint8_t _A, const uint8_t _B, const uint8_t _G, const uint8_t _R)
+  const auto ABGR = [](const uint32_t _A, const uint32_t _B, const uint32_t _G, const uint32_t _R) -> uint32_t
   {
     return (_A << 24) + (_B << 16) + (_G << 8) + (_R << 0);
   };
@@ -132,17 +132,19 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
         outcol *= sunlight;
       }
 
-      outcol += 0.05f; // ambient
+      auto a = (_AtRGBA(x, y) & 0xFF000000) >> 24;
 
+      outcol = (At(x, y) < 0.0f || a == 0xFF) ? outcol : outcol * vec3(0.25f, 0.41f, 0.88f);
+      outcol += 0.05f; // ambient
       outcol.x = ::std::min(1.0f, outcol.x);
       outcol.y = ::std::min(1.0f, outcol.y);
       outcol.z = ::std::min(1.0f, outcol.z);
 
       _AtRGBA(x, y) = ABGR(
         0xFF,
-        outcol.z * 0xFF,
-        outcol.y * 0xFF,
-        outcol.x * 0xFF);
+        0xFF * outcol.z,
+        0xFF * outcol.y,
+        0xFF * outcol.x);
     }
   }
 

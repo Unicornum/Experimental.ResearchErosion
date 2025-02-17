@@ -48,7 +48,7 @@ using GLbitfield = int;
 *  Источник: https://github.com/weigert/SimpleHydrology.git
 *  Скорость работы: ???
 */
-Erosion & Erosion::SimpleHydrologyByNickMcDonald(void)
+Erosion & Erosion::SimpleHydrologyByNickMcDonald(const AtRGBA_t & AtRGBA)
 {
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
@@ -63,26 +63,37 @@ Erosion & Erosion::SimpleHydrologyByNickMcDonald(void)
   Vertexpool<Vertex> vertexpool;
   vertexpool.reserve(quad::tilearea, quad::maparea);
 
-  World::map.init(vertexpool, cellpool, World::SEED);
+  World::map.init(vertexpool, cellpool, World::SEED); // out_of_range при завершении работы функции
 
-  for (int y = 0; y < quad::tilesize; y++)
+  for (int y = 0; y < m_SizeY; y++)
   {
-    for (int x = 0; x < quad::tilesize; x++)
+    for (int x = 0; x < m_SizeX; x++)
     {
       World::map.get({ x, y })->get({ x, y })->height = At(x, y);
     }
   }
 
-  for (int i = 0; i < 500; i++)
+  const int Count = 10;
+
+  for (int i = 0; i < Count; i++)
   {
-    World::erode(quad::tilesize);
+    if (i % ::std::max(1, Count / 10) == 0)
+    {
+      ::std::cout << "Erode " << i / ::std::max(1, Count / 10) << "0 % " << ::std::endl;
+    }
+
+    World::erode(m_SizeX * 15); // чем больше число, тем более густой будет речная сеть
   }
 
-  for (int y = 0; y < quad::tilesize; y++)
+  for (int y = 0; y < m_SizeY; y++)
   {
-    for (int x = 0; x < quad::tilesize; x++)
+    for (int x = 0; x < m_SizeX; x++)
     {
-      At(x, y) = World::map.height({ x, y });
+      auto h = World::map.height({ x, y }); // высота поверхности
+      auto w = World::map.discharge({ x, y }); // уровень воды
+
+      At(x, y) = h;
+      AtRGBA(x, y) = (w > h) ? 0x00000000 : 0xFFFFFFFF;
     }
   }
 

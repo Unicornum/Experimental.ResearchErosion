@@ -6,7 +6,9 @@
 class Erosion final
 {
 public:
+  using RGBA_t = uint32_t;
   using At_t = ::std::function<float & (int, int)>;
+  using AtRGBA_t = ::std::function<RGBA_t & (int, int)>;
 
 public:
   Erosion & DommainDistortion(void);
@@ -22,7 +24,7 @@ public:
   Erosion & MultiScaleErosion(void);
   Erosion & TerrainErosionByAdrianBlumer(void);
   Erosion & SimpleErosionByNickMcDonald(void);
-  Erosion & SimpleHydrologyByNickMcDonald(void);
+  Erosion & SimpleHydrologyByNickMcDonald(const AtRGBA_t &);
   Erosion & MeanderingRivers(void);
 
 public:
