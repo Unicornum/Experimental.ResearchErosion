@@ -34,11 +34,12 @@ void TestErosion(void)
     ;
 
   Erosion(At)
+    //.SetSize(512, 512)
+    //.SetSize(1024, 1024)
     .SetSize(SizeX, SizeY)
-    .SetSize(512, 512)
     //.DommainDistortion()
     //.ThermalErosionByAxelParis()
-    .TinyErode()
+    //.TinyErode()
     //.Gavoronoise()
     //.ThermalErosionByAxelParis().Gavoronoise() // *
     //.WaterErosionByEDog() // *
@@ -48,8 +49,9 @@ void TestErosion(void)
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
     //.MultiScaleErosion()
-    //.SimpleErosionByNickMcDonald()
     //.TerrainErosionByAdrianBlumer()
+    //.SimpleErosionByNickMcDonald()
+    .SimpleHydrologyByNickMcDonald()
     //.MeanderingRivers()
     ;
 

@@ -50,6 +50,9 @@
     <ClCompile Include="TinyErode.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleHydrologyByNickMcDonald.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

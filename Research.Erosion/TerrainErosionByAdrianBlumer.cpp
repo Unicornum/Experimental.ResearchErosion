@@ -2,7 +2,7 @@
 #include "Erosion.hpp"
 #include <random>
 #include <iostream>
-#include"Support.hpp"
+#include "Support.hpp"
 
 /**
 * \brief
@@ -18,6 +18,7 @@ Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
     .Normalize(0.5f);
 
   using namespace ::glm;
+  using ::std::clamp;
   using ushort = uint16_t;
   using uint = uint32_t;
   typedef std::mt19937 RANDOM;

@@ -20,9 +20,9 @@ public:
   Erosion & FastErosionByDavidJorna(void);
   Erosion & HydraulicErosionByDavidJorna(void);
   Erosion & MultiScaleErosion(void);
-  Erosion & SimpleErosionByNickMcDonald(void);
   Erosion & TerrainErosionByAdrianBlumer(void);
-
+  Erosion & SimpleErosionByNickMcDonald(void);
+  Erosion & SimpleHydrologyByNickMcDonald(void);
   Erosion & MeanderingRivers(void);
 
 public:
