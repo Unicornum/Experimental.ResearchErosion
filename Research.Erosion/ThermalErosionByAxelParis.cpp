@@ -14,9 +14,9 @@
 *  дает нечто похожее на хребты гор, но склоны получаются неестественно ровными.
 *  Можно использовать как предварительный проход перед другим способом обработки.
 */
-Erosion & Erosion::AxelParisThermalErosion(void)
+Erosion & Erosion::ThermalErosionByAxelParis(void)
 {
-  const auto converseCellSize = 1.0f / m_MetersPerXY;
+  const auto converseCellSize = 1.0f / 2.0f /*MetersPerXY*/;
 
   const int nx = m_SizeX;
   const int ny = m_SizeY;
@@ -41,7 +41,7 @@ Erosion & Erosion::AxelParisThermalErosion(void)
     bool IsWillDistributeMatter = false;
 
     // Sample a 3x3 grid around the pixel
-    const ::std::vector<::glm::ivec2> Grid3x3 =
+    static const ::std::vector<::glm::ivec2> Grid3x3 =
     {
       { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 },
       { 1, -1 }, { -1, 1 }, { -1, 1 }, { 1, -1 },
@@ -74,7 +74,7 @@ Erosion & Erosion::AxelParisThermalErosion(void)
     float z = AtData(x, y);
 
     // Sample a 3x3 grid around the pixel
-    const ::std::vector<::glm::ivec2> Grid3x3 =
+    static const ::std::vector<::glm::ivec2> Grid3x3 =
     {
       { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 },
       { 1, -1 }, { -1, 1 }, { -1, 1 }, { 1, -1 },
@@ -108,9 +108,9 @@ Erosion & Erosion::AxelParisThermalErosion(void)
       ::std::cout << "Erosion " << i / ::std::max(1, Count / 100) << " % " << ::std::endl;
     }
 
-#     ifdef _OPENMP
-#     pragma omp parallel for
-#     endif
+#   ifdef _OPENMP
+#   pragma omp parallel for
+#   endif
     for (int y = 0; y < ny; y++)
     {
       for (int x = 0; x < nx; x++)

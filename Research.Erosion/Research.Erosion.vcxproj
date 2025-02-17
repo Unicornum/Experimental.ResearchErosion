@@ -58,7 +58,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <StackReserveSize>200000000</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -76,17 +75,15 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <StackReserveSize>200000000</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.cpp" />
-    <ClCompile Include="AxelParisThermalErosion.cpp" />
     <ClCompile Include="DommainDistortion.cpp" />
     <ClCompile Include="FastErosionByDavidJorna.cpp" />
     <ClCompile Include="Gavoronoise.cpp" />
     <ClCompile Include="HydraulicErosionByDavidJorna.cpp" />
-    <ClCompile Include="JobTalleHydraulicErosion.cpp" />
+    <ClCompile Include="HydraulicErosionByJobTalle.cpp" />
     <ClCompile Include="MeanderingRivers.cpp" />
     <ClCompile Include="MultiScaleErosion.cpp" />
     <ClCompile Include="PerturbByDavidJorna.cpp" />
@@ -94,8 +91,9 @@
     <ClCompile Include="SimpleErosionByNickMcDonald.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="TerrainErosionByAdrianBlumer.cpp" />
+    <ClCompile Include="ThermalErosionByAxelParis.cpp" />
     <ClCompile Include="ThermalErosionByDavidJorna.cpp" />
-    <ClCompile Include="TinyErodeRainfall.cpp" />
+    <ClCompile Include="TinyErode.cpp" />
     <ClCompile Include="WaterErosionByEDog.cpp" />
   </ItemGroup>
   <ItemGroup>

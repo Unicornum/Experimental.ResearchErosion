@@ -9,22 +9,12 @@ public:
   using At_t = ::std::function<float & (int, int)>;
 
 public:
-  Erosion & SetSize(const size_t _SizeX, const size_t _SizeY)
-  {
-    m_Count = 0;
-    m_SizeX = _SizeX;
-    m_SizeY = _SizeY;
-    m_Water.resize(_SizeX * _SizeY, m_MinWaterLevel);
-
-    return *this;
-  }
-
   Erosion & DommainDistortion(void);
-  Erosion & AxelParisThermalErosion(void);
-  Erosion & TinyErodeRainfall(void);
+  Erosion & ThermalErosionByAxelParis(void);
+  Erosion & TinyErode(void);
   Erosion & Gavoronoise(void);
   Erosion & WaterErosionByEDog(void);
-  Erosion & JobTalleHydraulicErosion(void);
+  Erosion & HydraulicErosionByJobTalle(void);
   Erosion & PerturbByDavidJorna(void);
   Erosion & ThermalErosionByDavidJorna(void);
   Erosion & FastErosionByDavidJorna(void);
@@ -36,6 +26,14 @@ public:
   Erosion & MeanderingRivers(void);
 
 public:
+  Erosion & SetSize(const size_t _SizeX, const size_t _SizeY)
+  {
+    m_SizeX = _SizeX;
+    m_SizeY = _SizeY;
+
+    return *this;
+  }
+
   ::glm::vec3 GetNormal(const int x, const int y)
   {
     using namespace ::glm;
@@ -50,12 +48,8 @@ public:
   }
 
 private:
-  const float m_MinWaterLevel = 0.01f;
-  const float m_MetersPerXY = 2.0f;
   const At_t At;
-  ::std::vector<float> m_Water;
   size_t m_SizeX = 0, m_SizeY = 0;
-  size_t m_Count = 0;
 
 public:
   Erosion(const At_t & _At) :

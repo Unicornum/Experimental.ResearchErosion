@@ -30,28 +30,25 @@ void TestErosion(void)
   Support(At)
     .SetSize(SizeX, SizeY)
     .Load("Source.tiff")
-    .Normalize(0.0f)
+    //.Normalize(0.0f)
     ;
 
   Erosion(At)
     .SetSize(SizeX, SizeY)
-    //.SetSize(512, 512)
+    .SetSize(512, 512)
     //.DommainDistortion()
-    //.AxelParisThermalErosion()
-    //.TinyErodeRainfall()
-    //.TinyErodeRainfall()
-    //.TinyErodeRainfall()
-    //.TinyErodeRainfall()
+    //.ThermalErosionByAxelParis()
+    .TinyErode()
     //.Gavoronoise()
-    //.AxelParisThermalErosion().Gavoronoise() // *
+    //.ThermalErosionByAxelParis().Gavoronoise() // *
     //.WaterErosionByEDog() // *
-    //.JobTalleHydraulicErosion() // *
+    //.HydraulicErosionByJobTalle() // *
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
     //.MultiScaleErosion()
-    .SimpleErosionByNickMcDonald()
+    //.SimpleErosionByNickMcDonald()
     //.TerrainErosionByAdrianBlumer()
     //.MeanderingRivers()
     ;

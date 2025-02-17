@@ -11,7 +11,7 @@
 *
 *  Работает быстро, дает вполне убедительный результат.
 */
-Erosion & Erosion::JobTalleHydraulicErosion(void)
+Erosion & Erosion::HydraulicErosionByJobTalle(void)
 {
   Support(At)
     .SetSize(m_SizeX, m_SizeY)

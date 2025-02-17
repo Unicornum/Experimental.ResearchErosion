@@ -8,19 +8,10 @@
     <ClCompile Include="DommainDistortion.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="AxelParisThermalErosion.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="TinyErodeRainfall.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Gavoronoise.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="WaterErosionByEDog.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="JobTalleHydraulicErosion.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="ThermalErosionByDavidJorna.cpp">
@@ -48,6 +39,15 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="TerrainErosionByAdrianBlumer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThermalErosionByAxelParis.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HydraulicErosionByJobTalle.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyErode.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

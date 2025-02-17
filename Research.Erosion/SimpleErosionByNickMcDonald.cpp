@@ -26,8 +26,8 @@ Erosion & Erosion::SimpleErosionByNickMcDonald(void)
 
   const int erosionstep = m_SizeX * m_SizeY / 16;
 
-  //double scale = 1.5f * 60.0;                  //"Physical" Height scaling of the map
-  double heightmap[2049][2049] = { 0.0 };
+  ::std::vector<double> temp(m_SizeX + 1, 0.0f);
+  ::std::vector<::std::vector<double>> heightmap(m_SizeY + 1, temp);
 
   for (int y = 0; y < m_SizeY; y++)
   {
