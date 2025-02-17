@@ -111,11 +111,19 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
       auto sunlight = 1.0f - dot(sundir, norm);
 
       auto outcol = ColorsYZW(4);
+      auto a = (_AtRGBA(x, y) & 0xFF000000) >> 24;
 
       if (h < colors[0].x)
       {
         auto dh = ::std::max(0.0f, (1.0f + 6.0f * h));
         outcol = ::glm::mix(0.5f * ColorsYZW(5), ColorsYZW(5), dh);
+      }
+      else if (a != 0xFF)
+      {
+        auto dh = ::std::max(0.0f, (1.0f - 6.0f * h));
+        outcol = ::glm::mix(0.5f * ColorsYZW(5), ColorsYZW(5), dh);
+
+        //outcol = ColorsYZW(5) * (0.75f * sunlight);
       }
       else
       {
@@ -132,19 +140,24 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
         outcol *= sunlight;
       }
 
-      auto a = (_AtRGBA(x, y) & 0xFF000000) >> 24;
-
-      outcol = (At(x, y) < 0.0f || a == 0xFF) ? outcol : outcol * vec3(0.25f, 0.41f, 0.88f);
       outcol += 0.05f; // ambient
-      outcol.x = ::std::min(1.0f, outcol.x);
-      outcol.y = ::std::min(1.0f, outcol.y);
-      outcol.z = ::std::min(1.0f, outcol.z);
 
-      _AtRGBA(x, y) = ABGR(
-        0xFF,
-        0xFF * outcol.z,
-        0xFF * outcol.y,
-        0xFF * outcol.x);
+      //if (a != 0xFF)
+      //{
+      //  _AtRGBA(x, y) = ABGR(
+      //    0xFF,
+      //    (_AtRGBA(x, y) & 0x00FF0000) >> 16,
+      //    (_AtRGBA(x, y) & 0x0000FF00) >> 8,
+      //    (_AtRGBA(x, y) & 0x000000FF) >> 0);
+      //}
+      //else
+      {
+        _AtRGBA(x, y) = ABGR(
+          0xFF,
+          0xFF * ::std::min(1.0f, outcol.z),
+          0xFF * ::std::min(1.0f, outcol.y),
+          0xFF * ::std::min(1.0f, outcol.x));
+      }
     }
   }
 

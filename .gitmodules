@@ -4,6 +4,6 @@
 [submodule "Solution/Solution/SimplexNoise"]
 	path = Solution/Solution/SimplexNoise
 	url = https://github.com/SRombauts/SimplexNoise
-[submodule "Solution/Solution/SimpleHydrology"]
-	path = Solution/Solution/SimpleHydrology
-	url = https://github.com/weigert/SimpleHydrology.git
+[submodule "Solution/Solution/Experimental.SimpleHydrology"]
+	path = Solution/Solution/Experimental.SimpleHydrology
+	url = https://github.com/Unicornum/Experimental.SimpleHydrology
