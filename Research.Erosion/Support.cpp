@@ -107,23 +107,19 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
     for (int x = 0; x < m_SizeX; x++)
     {
       auto h = At(x, y);
-      auto norm = oErosion.GetNormal(x, y);
-      auto sunlight = 1.0f - dot(sundir, norm);
 
       auto outcol = ColorsYZW(4);
       auto a = (_AtRGBA(x, y) & 0xFF000000) >> 24;
 
-      if (h < colors[0].x)
+      if (h < colors[0].x) // океан 
       {
         auto dh = ::std::max(0.0f, (1.0f + 6.0f * h));
         outcol = ::glm::mix(0.5f * ColorsYZW(5), ColorsYZW(5), dh);
       }
-      else if (a != 0xFF)
+      else if (a != 0xFF) // водоемы выше уровня океана
       {
         auto dh = ::std::max(0.0f, (1.0f - 6.0f * h));
         outcol = ::glm::mix(0.5f * ColorsYZW(5), ColorsYZW(5), dh);
-
-        //outcol = ColorsYZW(5) * (0.75f * sunlight);
       }
       else
       {
@@ -137,6 +133,8 @@ Support & Support::ToRGBA(const AtRGBA_t & _AtRGBA)
           }
         }
 
+        auto norm = oErosion.GetNormal(x, y);
+        auto sunlight = 1.0f - dot(sundir, norm);
         outcol *= sunlight;
       }
 

@@ -59,7 +59,9 @@ Erosion & Erosion::SimpleHydrologyByNickMcDonald(const AtRGBA_t & AtRGBA)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.3f);
 
-  World::SEED = 12345;//time(NULL);
+  World::SEED = 
+    12345;
+    //time(NULL);
   srand(World::SEED);
 
   mappool::pool<quad::cell> cellpool;
