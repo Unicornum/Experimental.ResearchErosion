@@ -17,6 +17,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Research.Erosion", "Solutio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{9CF11BBF-AE63-45C6-8EB9-47559FEE422B}"
+	ProjectSection(SolutionItems) = preProject
+		Solution\Solution\Pictures\Colors_1024x1024.tiff = Solution\Solution\Pictures\Colors_1024x1024.tiff
+		Solution\Solution\Pictures\Colors_2048x2048.tiff = Solution\Solution\Pictures\Colors_2048x2048.tiff
+		Solution\Solution\Pictures\Colors_512x512.tiff = Solution\Solution\Pictures\Colors_512x512.tiff
+		Solution\Solution\Pictures\Result_1024x1024.tiff = Solution\Solution\Pictures\Result_1024x1024.tiff
+		Solution\Solution\Pictures\Result_2048x2048.tiff = Solution\Solution\Pictures\Result_2048x2048.tiff
+		Solution\Solution\Pictures\Result_512x512.tiff = Solution\Solution\Pictures\Result_512x512.tiff
+		Solution\Solution\Pictures\Source_1024x1024.tiff = Solution\Solution\Pictures\Source_1024x1024.tiff
+		Solution\Solution\Pictures\Source_2048x2048.tiff = Solution\Solution\Pictures\Source_2048x2048.tiff
+		Solution\Solution\Pictures\Source_512x512.tiff = Solution\Solution\Pictures\Source_512x512.tiff
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -39,6 +52,7 @@ Global
 		{8D1FC8D7-9894-41EA-9D20-CEF5710CC846} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 		{64EC0F71-F037-4C07-8D76-79A64429C050} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 		{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8} = {AA6FE514-7916-48BC-97AE-6B5EC4315A66}
+		{9CF11BBF-AE63-45C6-8EB9-47559FEE422B} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7CDE3880-E377-4F96-A320-290B730892A9}

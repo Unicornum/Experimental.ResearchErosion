@@ -76,8 +76,4 @@
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="Source.tiff" />
-    <Image Include="Result.tiff" />
-  </ItemGroup>
 </Project>
