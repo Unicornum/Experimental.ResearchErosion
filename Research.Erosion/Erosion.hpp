@@ -25,7 +25,7 @@ public:
   Erosion & TerrainErosionByAdrianBlumer(void);
   Erosion & SimpleErosionByNickMcDonald(void);
   Erosion & SimpleHydrologyByNickMcDonald(const AtRGBA_t &);
-  Erosion & MeanderingRivers(void);
+  Erosion & MeanderingRiversByAxelParis(const AtRGBA_t &);
 
 public:
   Erosion & SetSize(const size_t _SizeX, const size_t _SizeY)

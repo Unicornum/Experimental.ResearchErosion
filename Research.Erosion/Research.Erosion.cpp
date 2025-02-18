@@ -34,9 +34,9 @@ void TestErosion(void)
     ;
 
   Erosion(At)
-    //.SetSize(512, 512)
+    .SetSize(512, 512)
     //.SetSize(1024, 1024)
-    .SetSize(SizeX, SizeY)
+    //.SetSize(SizeX, SizeY)
     //.DommainDistortion()
     //.ThermalErosionByAxelParis()
     //.TinyErode()
@@ -51,8 +51,8 @@ void TestErosion(void)
     //.MultiScaleErosion() // *
     //.TerrainErosionByAdrianBlumer()
     //.SimpleErosionByNickMcDonald()
-    .SimpleHydrologyByNickMcDonald(AtRGBA)
-    //.MeanderingRivers()
+    //.SimpleHydrologyByNickMcDonald(AtRGBA)
+    .MeanderingRiversByAxelParis(AtRGBA)
     ;
 
   Support(At)

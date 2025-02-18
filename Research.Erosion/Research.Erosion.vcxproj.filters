@@ -29,9 +29,6 @@
     <ClCompile Include="..\Solution\Solution\SimplexNoise\src\SimplexNoise.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="MeanderingRivers.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="MultiScaleErosion.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -51,6 +48,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="SimpleHydrologyByNickMcDonald.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MeanderingRiversByAxelParis.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

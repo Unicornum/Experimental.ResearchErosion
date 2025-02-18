@@ -5,7 +5,7 @@
     <EndPathToLibs>$([System.String]::new($(Configuration)\lib).Replace('Release\', ''))</EndPathToLibs>
   </PropertyGroup>
   <PropertyGroup>
-    <IncludePath>$(SolutionDir)Solution\Solution\vcpkg_installed\x64-windows-static-md\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Solution\Solution\Experimental.MeanderingRivers\Code\Include;$(SolutionDir)Solution\Solution\vcpkg_installed\x64-windows-static-md\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
