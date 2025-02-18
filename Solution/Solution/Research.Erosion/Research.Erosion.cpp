@@ -1,12 +1,36 @@
 ﻿
 #include <iostream>
 #include "Support.hpp"
+#include "Erosion.hpp"
+
+#define SET_SIZE_2048
+//#define SET_SIZE_1024
+//#define SET_SIZE_512
+
+#ifdef SET_SIZE_2048
+const int SizeX = 2048;
+const int SizeY = 2048;
+const auto SourceFile = "..\\Pictures\\Source_2048x2048.tiff";
+const auto ResultFile = "..\\Pictures\\Result_2048x2048.tiff";
+const auto ColourFile = "..\\Pictures\\Colors_2048x2048.tiff";
+#elif defined SET_SIZE_1024
+const int SizeX = 1024;
+const int SizeY = 1024;
+const auto SourceFile = "..\\Pictures\\Source_1024x1024.tiff";
+const auto ResultFile = "..\\Pictures\\Result_1024x1024.tiff";
+const auto ColourFile = "..\\Pictures\\Colors_1024x1024.tiff";
+#elif defined SET_SIZE_512
+const int SizeX = 512;
+const int SizeY = 512;
+const auto SourceFile = "..\\Pictures\\Source_512x512.tiff";
+const auto ResultFile = "..\\Pictures\\Result_512x512.tiff";
+const auto ColourFile = "..\\Pictures\\Colors_512x512.tiff";
+#else
+#error "Macros SET_SIZE_xxxx not defined."
+#endif
 
 void TestErosion(void)
 {
-  const int SizeX = 2048;
-  const int SizeY = 2048;
-
   ::std::vector<float> HeightMap(SizeX * SizeY, 0.0f);
 
   const auto At = [&](int x, int y) -> float &
@@ -29,13 +53,9 @@ void TestErosion(void)
 
   Support(At)
     .SetSize(SizeX, SizeY)
-    .Load("Source.tiff")
-    //.Normalize(0.0f)
-    ;
+    .Load(SourceFile);
 
   Erosion(At)
-    //.SetSize(512, 512)
-    //.SetSize(1024, 1024)
     .SetSize(SizeX, SizeY)
     //.DommainDistortion()
     //.ThermalErosionByAxelParis()
@@ -59,10 +79,9 @@ void TestErosion(void)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
     //.Blur(2.0f)
-    .Save("Result.tiff")
+    .Save(ResultFile)
     .ToRGBA(AtRGBA)
-    .Save("Colors.tiff", AtRGBA);
-    ;
+    .Save(ColourFile, AtRGBA);
 }
 
 int main()
