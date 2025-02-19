@@ -699,7 +699,8 @@ FILE_VERSION_FILTER    =
 # DoxygenLayout.xml, doxygen will parse it automatically even if the LAYOUT_FILE
 # tag is left empty.
 
-LAYOUT_FILE            = ./Solution/Solution/Externals/Utilities/Doxygen/layout.xml
+LAYOUT_FILE            = ./Solution/layout.xml
+# LAYOUT_FILE
 
 # The CITE_BIB_FILES tag can be used to specify one or more bib files containing
 # the reference definitions. This must be a list of .bib files. The .bib
@@ -876,15 +877,18 @@ EXCLUDE_SYMLINKS       = NO
 
 EXCLUDE_PATTERNS       = */*.doxygen.ignore/* \
                          */.svn/* \
+                         */.git/* \
                          */html/* \
                          *.olb \
                          *.dll \
                          */Generated.cpp \
                          */Mock/* \
                          */Solution/version.hpp \
-                         */Solution/Solution/Externals/* \
-                         */Solution/Solution/*/Externals/* \
-                         */.git/*
+                         */Externals/* \
+                         */Experimental.MeanderingRivers/* \
+                         */Experimental.SimpleHydrology/* \
+                         */SimplexNoise/* \
+                         */vcpkg_installed/* 
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
@@ -1164,8 +1168,8 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-# HTML_HEADER            = ./Solution/Solution/Externals/Utilities/Doxygen/header.html
-HTML_HEADER            =
+HTML_HEADER            = ./Solution/header.html
+# HTML_HEADER            =
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -1187,8 +1191,8 @@ HTML_FOOTER            =
 # obsolete.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-# HTML_STYLESHEET        = ./Solution/Solution/Externals/Utilities/Doxygen/doxygen.css
-HTML_STYLESHEET        =
+HTML_STYLESHEET        = ./Solution/doxygen.css
+# HTML_STYLESHEET        =
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify additional user-defined
 # cascading style sheets that are included after the standard style sheets
