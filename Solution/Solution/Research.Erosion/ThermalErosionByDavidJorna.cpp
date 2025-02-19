@@ -5,16 +5,27 @@
 #include <glm/glm.hpp>
 
 /**
-* \brief
-*  ### Thermal Erosion by David Jorna
+* \page ThermalErosionByDavidJornaPage
 *
-*  Источник: https://github.com/djorna/terrain-generation
-*  Скорость работы: медленно
+*  ### Thermal Erosion
 *
-*  Результат выглядит лучше, чем в AxelParisThermalErosion.
+*  Скорость обработки: десятки секунд.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_grayscale_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_colors_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_grayscale_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_colors_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_grayscale_2048x2048.png">
+<img class="PreviewImage" src="ThermalErosionByDavidJorna_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::ThermalErosionByDavidJorna(void)
 {
+  // https://github.com/djorna/terrain-generation
+
   using Point = ::glm::vec2;
   const float talus_angle = 0.78f; // T
   const float magnitude = 0.25f; // c

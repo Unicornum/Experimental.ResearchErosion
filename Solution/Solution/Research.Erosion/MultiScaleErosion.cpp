@@ -2,21 +2,34 @@
 #include "Erosion.hpp"
 #include <iostream>
 #include <glm/glm.hpp>
-//#include "Random.hpp"
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Multi-scale Erosion
+* \page MultiScaleErosionPage
 *
-*  Источник: https://github.com/H-Schott/MultiScaleErosion
-*  Скорость работы: медленно
-*  
+*  Multi-scale Erosion
+*  -------------------
+*
+*  [Источник](https://github.com/H-Schott/MultiScaleErosion)
+*
+*  Скорость обработки: ~25 минут.
+*
 *  Исходный вариант был оптимизирован для карты высот 512х512, поэтому он
 *  идеально подходит для исходной карты высот, уменьшенной до этого размера
 *  (обработка отдельно участка не помогает, т.е. дело именно в уклоне
 *  поверхности), а для карты большего размера нужно в Slope() добавить
-*  домножение на коэффициент > 1 bk увеличивать количество проходов.
+*  домножение на коэффициент > 1 или увеличивать количество проходов.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="MultiScaleErosion_grayscale_512x512.png">
+<img class="PreviewImage" src="MultiScaleErosion_colors_512x512.png">
+<img class="PreviewImage" src="MultiScaleErosion_grayscale_1024x1024.png">
+<img class="PreviewImage" src="MultiScaleErosion_colors_1024x1024.png">
+<img class="PreviewImage" src="MultiScaleErosion_grayscale_2048x2048.png">
+<img class="PreviewImage" src="MultiScaleErosion_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::MultiScaleErosion(void)
 {

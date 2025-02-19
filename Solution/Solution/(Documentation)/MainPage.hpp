@@ -37,6 +37,23 @@
 *
 * \copydoc WaterErosionByEDogPage
 *
+* \copydoc HydraulicErosionByJobTallePage
+* 
+* \copydoc HydraulicErosionByDavidJornaPage
+*
+*  ... by David Jorna
+*  ---------------------------------
+*  
+*  [Источник](https://github.com/djorna/terrain-generation)
+*  
+* \copydoc ThermalErosionByDavidJornaPage
+*
+* \copydoc FastErosionByDavidJornaPage
+*
+* \copydoc HydraulicErosionByDavidJornaPage
+*  
+* \copydoc MultiScaleErosionPage
+*
 *  ----------------------------------------------------------------------------
 * \copydoc PreviewPage
 */
@@ -84,6 +101,36 @@
 * \image html ".\Solution\Solution\(Documentation)\WaterErosionByEDog_colors_1024x1024.png"
 * \image html ".\Solution\Solution\(Documentation)\WaterErosionByEDog_grayscale_2048x2048.png"
 * \image html ".\Solution\Solution\(Documentation)\WaterErosionByEDog_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByJobTalle_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\ThermalErosionByDavidJorna_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\FastErosionByDavidJorna_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\HydraulicErosionByDavidJorna_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_colors_2048x2048.png"
 */
 
 /**

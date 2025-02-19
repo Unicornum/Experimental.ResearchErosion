@@ -66,13 +66,13 @@ void TestErosion(void)
     //.Gavoronoise()
     //.ThermalErosionByAxelParis().Gavoronoise() // *
     //.WaterErosionByEDog() // *
-    .HydraulicErosionByJobTalle() // *
+    //.HydraulicErosionByJobTalle() // *
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
     //.HydraulicErosionByDavidJorna()
     //.MultiScaleErosion() // *
-    //.TerrainErosionByAdrianBlumer()
+    .TerrainErosionByAdrianBlumer()
     //.SimpleErosionByNickMcDonald()
     //.SimpleHydrologyByNickMcDonald(AtRGBA)
 

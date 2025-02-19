@@ -7,16 +7,29 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Hydraulic Erosion by David Jorna
+* \page HydraulicErosionByDavidJornaPage
 *
-*  Источник: https://github.com/djorna/terrain-generation
-*  Скорость работы: медленно
-*  
+*  ### Hydraulic Erosion
+*
+*  Скорость обработки: несколько минут.
+*
 *  Результат похож на .Blur(2.0f), а не на эрозию.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_grayscale_512x512.png">
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_colors_512x512.png">
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_grayscale_1024x1024.png">
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_colors_1024x1024.png">
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_grayscale_2048x2048.png">
+<img class="PreviewImage" src="HydraulicErosionByDavidJorna_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::HydraulicErosionByDavidJorna(void)
 {
+  // https://github.com/djorna/terrain-generation
+
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
     .Normalize(0.0f);

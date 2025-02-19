@@ -1,6 +1,6 @@
 @echo off
 
-set ResultFileName=WaterErosionByEDog
+set ResultFileName=MultiScaleErosion
 
 FOR %%f IN ("%CD%\Result_*.tiff") DO (
 
@@ -21,5 +21,11 @@ gm.exe convert "%%f" "..\(Documentation)\%ResultFileName%_colors_%%g.png"
 
 )
 )
+
+cd..
+cd..
+cd..
+
+doxygen.exe
 
 pause

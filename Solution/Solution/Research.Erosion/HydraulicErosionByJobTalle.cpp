@@ -4,12 +4,25 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Water Hydraulic Erosion by Job Talle
+* \page HydraulicErosionByJobTallePage
 *
-*  Источник: https://jobtalle.com/simulating_hydraulic_erosion.html
+*  Water Hydraulic Erosion by Job Talle
+*  ------------------------------------
 *
-*  Работает быстро, дает вполне убедительный результат.
+*  [Источник](https://jobtalle.com/simulating_hydraulic_erosion.html)
+*
+*  Скорость обработки: доли секунды.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_grayscale_512x512.png">
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_colors_512x512.png">
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_grayscale_1024x1024.png">
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_colors_1024x1024.png">
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_grayscale_2048x2048.png">
+<img class="PreviewImage" src="HydraulicErosionByJobTalle_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::HydraulicErosionByJobTalle(void)
 {
