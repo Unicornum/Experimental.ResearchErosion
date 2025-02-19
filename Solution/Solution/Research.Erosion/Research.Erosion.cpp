@@ -72,7 +72,7 @@ void TestErosion(void)
     //.FastErosionByDavidJorna()
     .HydraulicErosionByDavidJorna()
     //.MultiScaleErosion() // *
-    //.TerrainErosionByAdrianBlumer()
+    //.TerrainErosionByAdrianBlumer() // *
     //.SimpleErosionByNickMcDonald()
     //.SimpleHydrologyByNickMcDonald(AtRGBA)
 

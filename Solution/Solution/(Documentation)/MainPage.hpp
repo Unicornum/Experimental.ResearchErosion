@@ -39,8 +39,6 @@
 *
 * \copydoc HydraulicErosionByJobTallePage
 * 
-* \copydoc HydraulicErosionByDavidJornaPage
-*
 *  ... by David Jorna
 *  ------------------
 *  
