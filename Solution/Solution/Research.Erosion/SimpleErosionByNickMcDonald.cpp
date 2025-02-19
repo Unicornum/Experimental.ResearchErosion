@@ -4,11 +4,24 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Simple Erosion by Nick McDonald
+* \page SimpleErosionByNickMcDonaldPage
 *
-*  Источник: https://github.com/weigert/SimpleErosion
-*  Скорость работы: медленно
+*  ### Simple Erosion
+*
+*  [Источник](https://github.com/weigert/SimpleErosion)
+*
+*  Скорость обработки: ~15 секунд.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_grayscale_512x512.png">
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_colors_512x512.png">
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_grayscale_1024x1024.png">
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_colors_1024x1024.png">
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_grayscale_2048x2048.png">
+<img class="PreviewImage" src="SimpleErosionByNickMcDonald_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::SimpleErosionByNickMcDonald(void)
 {

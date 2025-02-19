@@ -3,9 +3,9 @@
 #include "Support.hpp"
 #include "Erosion.hpp"
 
-//#define SET_SIZE_2048
+#define SET_SIZE_2048
 //#define SET_SIZE_1024
-#define SET_SIZE_512
+//#define SET_SIZE_512
 
 #ifdef SET_SIZE_2048
 const int SizeX = 2048;
@@ -70,9 +70,9 @@ void TestErosion(void)
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
-    //.HydraulicErosionByDavidJorna()
+    .HydraulicErosionByDavidJorna()
     //.MultiScaleErosion() // *
-    .TerrainErosionByAdrianBlumer()
+    //.TerrainErosionByAdrianBlumer()
     //.SimpleErosionByNickMcDonald()
     //.SimpleHydrologyByNickMcDonald(AtRGBA)
 

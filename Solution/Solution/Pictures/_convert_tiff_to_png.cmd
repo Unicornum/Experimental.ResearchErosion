@@ -1,6 +1,6 @@
 @echo off
 
-set ResultFileName=MultiScaleErosion
+set ResultFileName=SimpleHydrologyByNickMcDonald
 
 FOR %%f IN ("%CD%\Result_*.tiff") DO (
 

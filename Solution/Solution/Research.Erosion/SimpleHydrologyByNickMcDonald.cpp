@@ -44,14 +44,27 @@ using GLbitfield = int;
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Simple Hydrology by Nick McDonald
+* \page SimpleHydrologyByNickMcDonaldPage
 *
-*  Источник: https://github.com/weigert/SimpleHydrology.git
-*  Скорость работы: медленно
-*  
+*  ### Simple Hydrology
+*
+*  [Источник](https://github.com/weigert/SimpleHydrology.git)
+*
+*  Скорость обработки: ~30 секунд.
+*
 *  Корректо работает только Release версия, Debug выдает навыходе огромные
 *  значения.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_grayscale_512x512.png">
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_colors_512x512.png">
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_grayscale_1024x1024.png">
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_colors_1024x1024.png">
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_grayscale_2048x2048.png">
+<img class="PreviewImage" src="SimpleHydrologyByNickMcDonald_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::SimpleHydrologyByNickMcDonald(const AtRGBA_t & AtRGBA)
 {

@@ -5,11 +5,25 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Terrain Erosion by Adrian Blumer
+* \page TerrainErosionByAdrianBlumerPage
 *
-*  Источник: https://github.com/karhu/terrain-erosion
-*  Скорость работы: ???
+*  Terrain Erosion by Adrian Blumer
+*  ---------------------------------
+*
+*  [Источник](https://github.com/karhu/terrain-erosion)
+*
+*  Скорость обработки: больше минуты.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_grayscale_512x512.png">
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_colors_512x512.png">
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_grayscale_1024x1024.png">
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_colors_1024x1024.png">
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_grayscale_2048x2048.png">
+<img class="PreviewImage" src="TerrainErosionByAdrianBlumer_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::TerrainErosionByAdrianBlumer(void)
 {

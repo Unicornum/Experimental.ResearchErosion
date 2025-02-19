@@ -42,7 +42,7 @@
 * \copydoc HydraulicErosionByDavidJornaPage
 *
 *  ... by David Jorna
-*  ---------------------------------
+*  ------------------
 *  
 *  [Источник](https://github.com/djorna/terrain-generation)
 *  
@@ -53,6 +53,15 @@
 * \copydoc HydraulicErosionByDavidJornaPage
 *  
 * \copydoc MultiScaleErosionPage
+*
+* \copydoc TerrainErosionByAdrianBlumerPage
+*  
+*  ... by Nick McDonald
+*  --------------------
+*  
+* \copydoc SimpleErosionByNickMcDonaldPage
+*
+* \copydoc SimpleHydrologyByNickMcDonaldPage
 *
 *  ----------------------------------------------------------------------------
 * \copydoc PreviewPage
@@ -131,6 +140,24 @@
 * \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_colors_1024x1024.png"
 * \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_grayscale_2048x2048.png"
 * \image html ".\Solution\Solution\(Documentation)\MultiScaleErosion_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\TerrainErosionByAdrianBlumer_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleErosionByNickMcDonald_colors_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_grayscale_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_colors_512x512.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_grayscale_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_colors_1024x1024.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_grayscale_2048x2048.png"
+* \image html ".\Solution\Solution\(Documentation)\SimpleHydrologyByNickMcDonald_colors_2048x2048.png"
 */
 
 /**
