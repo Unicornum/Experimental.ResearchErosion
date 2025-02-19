@@ -7,13 +7,28 @@
 #include "Random.hpp"
 
 /**
-* \brief
-*  ### Water Erosion by E-DOG
+* \page WaterErosionByEDogPage
 *
-*  Источник: https://ranmantaru.com/blog/2011/10/08/water-erosion-on-heightmap-terrain/
-*  
+*  Water Erosion By E-Dog
+*  ----------------------
+*
+*  [Источник](https://ranmantaru.com/blog/2011/10/08/water-erosion-on-heightmap-terrain/)
+*
+*  Скорость обработки: доли секунды.
+*
 *  Работает быстро, дает вполне убедительный результат. При этом требует
 *  дополнительной обработки и блюра, т.к. генерирует много мусора.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="WaterErosionByEDog_grayscale_512x512.png">
+<img class="PreviewImage" src="WaterErosionByEDog_colors_512x512.png">
+<img class="PreviewImage" src="WaterErosionByEDog_grayscale_1024x1024.png">
+<img class="PreviewImage" src="WaterErosionByEDog_colors_1024x1024.png">
+<img class="PreviewImage" src="WaterErosionByEDog_grayscale_2048x2048.png">
+<img class="PreviewImage" src="WaterErosionByEDog_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::WaterErosionByEDog(void)
 {

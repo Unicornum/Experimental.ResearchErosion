@@ -6,13 +6,40 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Eroded Terrain Noise
+* \page GavoronoisePage
 *
-*  Источник: https://www.shadertoy.com/view/MtGcWh
+*  Gavoronoise
+*  -----------
 *
-*  Работает быстро (за один проход), по сути просто накладвает шум с учетом
-*  нормалей. Обработка готовой карты высот дает вполне убедительный результат.
+*  [Источник](https://www.shadertoy.com/view/MtGcWh)
+*
+*  Скорость обработки: секунды.
+*
+*  Работает за один проход, по сути просто накладвает шум с учетом нормалей.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="Gavoronoise_grayscale_512x512.png">
+<img class="PreviewImage" src="Gavoronoise_colors_512x512.png">
+<img class="PreviewImage" src="Gavoronoise_grayscale_1024x1024.png">
+<img class="PreviewImage" src="Gavoronoise_colors_1024x1024.png">
+<img class="PreviewImage" src="Gavoronoise_grayscale_2048x2048.png">
+<img class="PreviewImage" src="Gavoronoise_colors_2048x2048.png">
+
+* \endhtmlonly
+*  
+*  ### Бонус: ThermalErosionByAxelParis + Gavoronoise
+*
+* \htmlonly
+
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_grayscale_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_colors_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_grayscale_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_colors_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_grayscale_2048x2048.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParisGavoronoise_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::Gavoronoise(void)
 {
@@ -115,7 +142,7 @@ Erosion & Erosion::Gavoronoise(void)
 
   Support(At)
     .SetSize(m_SizeX, m_SizeY)
-    .Blur(2.0f);
+    .Blur(1.0f);
 
   return *this;
 }

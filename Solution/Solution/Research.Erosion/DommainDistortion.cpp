@@ -5,14 +5,29 @@
 #include "Support.hpp"
 
 /**
-* \brief
-*  ### Domain Distortion by Inigo Quilez
+* \page DommainDistortionPage
 *  
-*  Источник: https://iquilezles.org/articles/warp/
+*  Domain Distortion by Inigo Quilez
+*  ---------------------------------
+*  
+*  [Источник](https://iquilezles.org/articles/warp/)
+*  
+*  Скорость обработки: доли секунды.
 *  
 *  Не вляется эрозией как таковой, дает красивый результат, но для реального
 *  использования в качестве карты высот пригодно разве что для генерации
 *  безумных инопланетных пейзажей.
+*  
+* \htmlonly
+
+<img class="PreviewImage" src="DommainDistortion_grayscale_512x512.png">
+<img class="PreviewImage" src="DommainDistortion_colors_512x512.png">
+<img class="PreviewImage" src="DommainDistortion_grayscale_1024x1024.png">
+<img class="PreviewImage" src="DommainDistortion_colors_1024x1024.png">
+<img class="PreviewImage" src="DommainDistortion_grayscale_2048x2048.png">
+<img class="PreviewImage" src="DommainDistortion_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::DommainDistortion(void)
 {

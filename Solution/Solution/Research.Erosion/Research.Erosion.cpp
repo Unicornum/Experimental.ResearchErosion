@@ -3,9 +3,9 @@
 #include "Support.hpp"
 #include "Erosion.hpp"
 
-#define SET_SIZE_2048
+//#define SET_SIZE_2048
 //#define SET_SIZE_1024
-//#define SET_SIZE_512
+#define SET_SIZE_512
 
 #ifdef SET_SIZE_2048
 const int SizeX = 2048;
@@ -55,6 +55,9 @@ void TestErosion(void)
     .SetSize(SizeX, SizeY)
     .Load(SourceFile);
 
+  using namespace ::std::chrono;
+  system_clock::time_point begin = system_clock::now();
+
   Erosion(At)
     .SetSize(SizeX, SizeY)
     //.DommainDistortion()
@@ -63,7 +66,7 @@ void TestErosion(void)
     //.Gavoronoise()
     //.ThermalErosionByAxelParis().Gavoronoise() // *
     //.WaterErosionByEDog() // *
-    //.HydraulicErosionByJobTalle() // *
+    .HydraulicErosionByJobTalle() // *
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
@@ -72,8 +75,12 @@ void TestErosion(void)
     //.TerrainErosionByAdrianBlumer()
     //.SimpleErosionByNickMcDonald()
     //.SimpleHydrologyByNickMcDonald(AtRGBA)
+
     //.MeanderingRiversByAxelParis(AtRGBA)
     ;
+
+  ::std::cout << "Time: " << 
+    duration_cast<seconds>(system_clock::now() - begin).count() << ::std::endl;
 
   Support(At)
     .SetSize(SizeX, SizeY)

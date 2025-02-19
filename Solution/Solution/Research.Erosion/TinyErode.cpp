@@ -4,19 +4,37 @@
 #include "TinyErode.h"
 
 /**
-* \brief
-*  ### TinyErode
+* \page TinyErodePage
+*  
+*  Tiny Erode
+*  ----------
 *
-*  »сточник: https://github.com/tay10r/TinyErode
+*  [»сточник](https://github.com/tay10r/TinyErode)
 *
+*  —корость обработки: больше п€ти минут.
+*  
 *  √отовый дл€ использовани€ вариант (хот€ совсем без танцев с бубном обойтись
 *  не удалось, в документации не прописан важный дл€ работы библиотеки момент).
+*
+* \htmlonly
+
+<img class="PreviewImage" src="TinyErode_grayscale_512x512.png">
+<img class="PreviewImage" src="TinyErode_colors_512x512.png">
+<img class="PreviewImage" src="TinyErode_grayscale_1024x1024.png">
+<img class="PreviewImage" src="TinyErode_colors_1024x1024.png">
+<img class="PreviewImage" src="TinyErode_grayscale_2048x2048.png">
+<img class="PreviewImage" src="TinyErode_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::TinyErode(void)
 {
   const float MinWaterLevel = 0.01f;
-  const float MetersPerXY = 15.0f;
-  ::std::vector<float> m_Water(m_SizeX * m_SizeY, MinWaterLevel);
+  const float MetersPerXY = 
+    (m_SizeX == 2048) ? 15.0f :
+    (m_SizeX == 1024) ? 60.0f : 
+    (m_SizeX == 512) ? 75.0f : 1.0f;
+  ::std::vector<float> Water(m_SizeX * m_SizeY, MinWaterLevel);
 
   auto getHeight = [&](int x, int y)
   {
@@ -32,7 +50,7 @@ Erosion & Erosion::TinyErode(void)
 
   auto getWater = [&](int x, int y)
   {
-    return m_Water[y * m_SizeX + x];
+    return Water[y * m_SizeX + x];
   };
 
   auto addWater = [&](int x, int y, float deltaWater)
@@ -42,7 +60,7 @@ Erosion & Erosion::TinyErode(void)
     /* The function returns the new water level. It shuold not
       * fall below zero. */
 
-    auto & oWater = m_Water[y * m_SizeX + x];
+    auto & oWater = Water[y * m_SizeX + x];
     return oWater = ::std::max(MinWaterLevel, oWater + deltaWater);
   };
 

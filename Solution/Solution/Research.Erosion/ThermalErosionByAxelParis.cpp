@@ -4,15 +4,29 @@
 #include <glm/glm.hpp>
 
 /**
-* \brief
-*  ### Thermal Erosion by Axel Paris
+* \page ThermalErosionByAxelParisPage
+*  
+*  Thermal Erosion by Axel Paris
+*  -----------------------------
 *
-*  Источник: https://aparis69.github.io/public_html/posts/terrain_erosion_2.html
-*  Скорость работы: медленно
+*  [Источник](https://aparis69.github.io/public_html/posts/terrain_erosion_2.html)
+*  
+*  Скорость обработки: больше минуты.
 *  
 *  Простой алгоритм, не совсем полноценная эрозия (автор сам об этом пишет),
 *  дает нечто похожее на хребты гор, но склоны получаются неестественно ровными.
 *  Можно использовать как предварительный проход перед другим способом обработки.
+*
+* \htmlonly
+
+<img class="PreviewImage" src="ThermalErosionByAxelParis_grayscale_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParis_colors_512x512.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParis_grayscale_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParis_colors_1024x1024.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParis_grayscale_2048x2048.png">
+<img class="PreviewImage" src="ThermalErosionByAxelParis_colors_2048x2048.png">
+
+* \endhtmlonly
 */
 Erosion & Erosion::ThermalErosionByAxelParis(void)
 {
