@@ -1,7 +1,7 @@
 
 # Research.Erosion
 
-Репозиторий кода [исследования](https://unicornum.github.io/Research.Erosion/index.html)
+Репозиторий кода [исследования](https://unicornum.github.io/Experimental.ResearchErosion/index.html)
 различных реализаций эрозии заранее сгенерированной карты высот.
 
 > Код в данном репозитории собирался 'на коленке' - для того, чтобы можно было 

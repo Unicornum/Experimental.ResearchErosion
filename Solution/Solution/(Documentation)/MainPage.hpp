@@ -6,7 +6,7 @@
 *  Erosion
 *  =======
 *  
-*  [Репозиторий](https://github.com/Unicornum/Research.Erosion) исходного кода.
+*  [Репозиторий](https://github.com/Unicornum/Experimental.ResearchErosion) исходного кода.
 *  
 *  Представлены результаты обработки карт высот разного размера (512x512,
 *  1024x1024 и 2048x2048) в двух вариантах (оттенки серого и цветная, в которой
