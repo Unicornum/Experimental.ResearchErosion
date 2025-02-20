@@ -70,7 +70,7 @@ void TestErosion(void)
     //.PerturbByDavidJorna()
     //.ThermalErosionByDavidJorna()
     //.FastErosionByDavidJorna()
-    .HydraulicErosionByDavidJorna()
+    //.HydraulicErosionByDavidJorna()
     //.MultiScaleErosion() // *
     //.TerrainErosionByAdrianBlumer() // *
     //.SimpleErosionByNickMcDonald()
@@ -85,7 +85,7 @@ void TestErosion(void)
   Support(At)
     .SetSize(SizeX, SizeY)
     .Normalize(0.3f)
-    //.Blur(2.0f)
+    //.Blur(1.0f)
     .Save(ResultFile)
     .ToRGBA(AtRGBA)
     .Save(ColourFile, AtRGBA);

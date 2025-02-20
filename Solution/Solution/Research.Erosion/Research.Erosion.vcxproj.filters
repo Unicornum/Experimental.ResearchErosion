@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Research.Erosion.cpp" />
-    <ClCompile Include="Support.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="DommainDistortion.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -51,8 +48,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="..\SimplexNoise\src\SimplexNoise.cpp">
-      <Filter>Source</Filter>
+      <Filter>Externals</Filter>
     </ClCompile>
+    <ClCompile Include="Support.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -61,6 +59,9 @@
     <Filter Include="Source">
       <UniqueIdentifier>{c8e9f5c7-d9b9-4e9a-879f-77fca5e723b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Externals">
+      <UniqueIdentifier>{6ce5d61b-da55-460f-806f-062bc9bf2efe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Version.rc">
@@ -68,12 +69,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Support.hpp">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="Erosion.hpp" />
     <ClInclude Include="..\SimplexNoise\src\SimplexNoise.h">
-      <Filter>Source</Filter>
+      <Filter>Externals</Filter>
     </ClInclude>
+    <ClInclude Include="Support.hpp" />
   </ItemGroup>
 </Project>

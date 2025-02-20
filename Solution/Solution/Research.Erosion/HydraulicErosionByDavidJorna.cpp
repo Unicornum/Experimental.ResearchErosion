@@ -13,7 +13,11 @@
 *
 *  Скорость обработки: несколько минут.
 *
-*  Результат похож на .Blur(2.0f), а не на эрозию.
+*  Получить вменяемый результат не удалось - результат с параметрами из
+*  оригинала похож на .Blur(2.0f), а не на эрозию, попыткаподбора параметров
+*  дает в лучшем случае набот хаотически разбросанных впадин, не привязанных
+*  явным образом к склонам гор. К тому же, в оригинале есть явная ошибка -
+*  индексы перепутаны местами.
 *
 * \htmlonly
 
@@ -39,8 +43,9 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
   const auto kernel_type = MOORE;
 
   const auto iterations = 50;
-  //float k_rain = 0.01f, k_solubility = 0.01f, k_evaporation = 0.5f, k_capacity = 0.01f;
-  float k_rain = 0.2f, k_solubility = 0.025f, k_evaporation = 0.2f, k_capacity = 0.1f;
+  //float k_rain = 0.01, k_solubility = 0.01, k_evaporation = 0.5, k_capacity = 0.01;
+  //float k_rain = 0.1, k_solubility = 0.1, k_evaporation = 0.5, k_capacity = 0.1;
+  float k_rain = 0.0015, k_solubility = 0.025, k_evaporation = 0.15, k_capacity = 10.0;
 
   ::std::vector<float> watermap(m_SizeX * m_SizeY, 0.0f);
   ::std::vector<float> sedimentmap(m_SizeX * m_SizeY, 0.0f);
@@ -95,7 +100,7 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
 
     // Cull outlier points (unnessesarily opaque code)
     points.erase(std::remove_if(points.begin(), points.end(),
-      [&](Point p) { return !pointInRange(p.y, p.x); }), points.end());
+      [&](Point p) { return !pointInRange(p.x, p.y); }), points.end());
     return points;
   };
 
@@ -160,6 +165,9 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
         float a = h + w;
         std::vector<float> dlist;
         std::vector<float> alist;
+
+        auto min_a = a;
+
         auto nbs = neighbours(center);
         for (auto it = nbs.cbegin(); it != nbs.cend();)
         {
@@ -168,6 +176,7 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
           {
             dlist.push_back(a - ai);
             alist.push_back(ai);
+            min_a = ::std::min(min_a, ai);
             ++it;
           }
           else
@@ -256,6 +265,27 @@ Erosion & Erosion::HydraulicErosionByDavidJorna(void)
     transfer();
     evaporate();
   }
+
+  // ************************************************************************ //
+  // Для отладочных целей (+ нужно отключить нормализацию в файле
+  // Research.Erosion) - при подборе коэфициентов ориентироваться нужно на
+  // характер изменения значений осадка.
+
+//#   pragma omp parallel for
+//  for (int i = 0; i < m_SizeX; ++i)
+//  {
+//    for (int j = 0; j < m_SizeY; ++j)
+//    {
+//      //auto & h = At(i, j);
+//      //if (h > 0.0f) h -= 2.0f * AtSediment(i, j);
+//
+//      At(i, j) = AtSediment(i, j);
+//    }
+//  }
+//
+//  Support(At)
+//    .SetSize(m_SizeX, m_SizeY)
+//    .Normalize(0.01f);
 
   return *this;
 }

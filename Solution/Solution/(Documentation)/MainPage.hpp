@@ -3,8 +3,8 @@
 * \mainpage notitle
 * \anchor MainPage
 * 
-*  Research.Erosion
-*  ===========
+*  Erosion
+*  =======
 *  
 *  [Репозиторий](https://github.com/Unicornum/Research.Erosion) исходного кода.
 *  
@@ -48,8 +48,6 @@
 *
 * \copydoc FastErosionByDavidJornaPage
 *
-* \copydoc HydraulicErosionByDavidJornaPage
-*  
 * \copydoc MultiScaleErosionPage
 *
 * \copydoc TerrainErosionByAdrianBlumerPage
