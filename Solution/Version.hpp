@@ -6,7 +6,7 @@
 *  Файл версии решения.
 */
 
-#define VERSION 0
+#define VERSION 1
 
 #define SUBVERSION 0
 
@@ -19,10 +19,10 @@
 #define __PLATFORM__ x64
 
 // Устанавливается автоматически
-#define TIME "20:58"
+#define TIME "12:54"
 
 // Устанавливается автоматически
-#define DAY 14
+#define DAY 20
 
 // Устанавливается автоматически
 #define MONTH 02
@@ -33,13 +33,13 @@
 // Текущий год устанавливается автоматически
 #define __COPYRIGHT_STR__ "© UnicornumVerum 2025 (unicornum.verum@gmail.ru)"
 
-#define __COMPANY_NAME__ "Unknown company"
+#define __COMPANY_NAME__ "UnicornumVerum"
 
 // Устанавливается автоматически
-#define __PRODUCT_NAME__ "Research"
+#define __PRODUCT_NAME__ "Experimental.ResearchErosion"
 
-#define __APPLICATION_NAME__ "Unknown application"
+#define __APPLICATION_NAME__ "Experimental.ResearchErosion"
 
-#define __PRODUCT_DESCRIPTION__ "Research: <добавить описание продукта>"
+#define __PRODUCT_DESCRIPTION__ "Исследование применения эрозии к карте высот"
 
 #define __FILE_NAME__ ""
